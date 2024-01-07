@@ -1,0 +1,19 @@
+[answer51]
+
+t = t.mutate(
+    age=t["age"].fillna(30)
+)
+
+t["age"].isnull().sum()
+
+----------------------------------------------
+
+[Tips]
+- To fill in missing values, use the .fillna() method.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['age'] = df['age'].fillna(30)
+df['age'].isnull().sum()

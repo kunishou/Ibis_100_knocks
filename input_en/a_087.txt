@@ -1,0 +1,22 @@
+[answer87]
+
+t.execute().hist(figsize=(20,20), color='b')
+
+----------------------------------------------
+
+[Tips]
+- .execute() is used to retrieve a dataframe and
+  then perform a pandas plot.
+- To plot a histogram of the dataframe's numeric
+  columns, use hist().
+- With figsize=() you can specify the graph's
+  size.
+- With color='' you can specify the color of the
+  graph.
+  (If set to 'r', the graph displays in red.)
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.hist(figsize=(20,20), color='b')

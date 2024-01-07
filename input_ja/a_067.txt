@@ -1,0 +1,27 @@
+[answer67]
+
+t2 = ibis.union(t2, t2)
+display(t2)
+t2.count()
+
+# table に含まれる列数が異なる場合
+# t2 = pd.concat([t2.execute(), t4.execute()], axis=0)
+# t2 = ibis.memtable(t2)
+
+
+----------------------------------------------
+
+[Tips]
+・複数のtable を行方向に結合するときは union() を使用する。
+・union() はテーブルの列数が同一のときにしか使用できない。
+・別解として .excute() で pandas データフレームにしたデータを pandas の concat メソッドで
+　結合するというやり方もある（pandas concat ではデータフレームの列数が異なっていても
+　結合することができる）。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df2 = pd.concat([df2,df2],axis=0)
+df2
+

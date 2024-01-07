@@ -1,0 +1,44 @@
+[answer88]
+
+import matplotlib.pyplot as plt
+
+x = t["age"].to_pandas() # pandas データフレームに変換
+y = t["fare"].to_pandas() # pandas データフレームに変換
+
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+
+ax.scatter(x,y)
+
+ax.set_title('age-fare scatter')
+ax.set_xlabel("age")
+ax.set_ylabel("fare")
+
+fig.show()
+
+
+----------------------------------------------
+
+[Tips]
+・matplotlib についても .execute() でデータフレームに
+　変換すれば pandas と同様に描画することができる。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+import matplotlib.pyplot as plt
+
+x = df["age"]
+y = df["fare"]
+
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+
+ax.scatter(x,y)
+
+ax.set_title('age-fare scatter')
+ax.set_xlabel("age")
+ax.set_ylabel("fare")
+
+fig.show()

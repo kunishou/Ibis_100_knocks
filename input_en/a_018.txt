@@ -1,0 +1,18 @@
+[answer18]
+
+t["name", "sex"]
+# t.select("name", "sex") # Alternative solution
+
+----------------------------------------------
+
+[Tips]
+- To extract specific multiple columns from a table,
+write t["column1", "column2"].
+- It's also fine to use double brackets as in pandas: t[["column1", "column2"]].
+- You can also extract multiple columns using select.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df[['name', 'sex']]

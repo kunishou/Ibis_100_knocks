@@ -1,0 +1,31 @@
+[answer67]
+
+t2 = ibis.union(t2, t2)
+display(t2)
+t2.count()
+
+# If the number of columns in the tables differ
+# t2 = pd.concat([t2.execute(), t4.execute()], axis=0)
+# t2 = ibis.memtable(t2)
+
+----------------------------------------------
+
+[Tips]
+- To concatenate multiple tables
+  in the row direction, use union().
+- union() can only be used when
+  the tables have the same number of columns.
+- An alternative method is to convert the
+  data to a pandas dataframe using .execute(),
+  and then use the pandas concat method
+  to combine them (with pandas concat, it
+  is possible to combine dataframes even
+  when the number of columns differ).
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = pd.concat([df2,df2], axis=0)
+df2
+

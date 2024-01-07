@@ -1,0 +1,51 @@
+[answer77]
+
+from sklearn.preprocessing import MinMaxScaler
+
+df2 = t2.drop("name", "class").execute() # Remove unnecessary columns 
+# and convert to dataframe
+
+# Define Min-Max Scaling
+scaler = MinMaxScaler()
+
+# Min-Max Scaling and convert to dataframe
+df2_std = pd.DataFrame(scaler.fit_transform(df2), 
+                       columns=df2.columns)
+
+df2_std.describe() # Confirm min is 0 and max is 1
+
+------------------------------------------------
+
+[Tips]
+- Since scikit-learn cannot process a database 
+  table object as is, t2 is converted to a 
+  dataframe with .execute() and passed to df2.
+- Use scikit-learn's StandardScaler 
+  for Min-Max Scaling a dataframe.
+- Min-Max Scaling transforms the data so that
+  the minimum value is 0 and the maximum value is 1.
+- Be careful not to convert the dataframe to 
+  a ndarray with to_numpy() like 
+  fit_transform(df2.to_numpy()) as it 
+  will result in incorrect calculations.
+
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+from sklearn.preprocessing import MinMaxScaler
+
+df2 = df2.drop(['name','class'],axis=1) # Remove unnecessary columns
+
+# Define Min-Max Scaling
+scaler = MinMaxScaler()
+scaler.fit(df2)
+
+# Transformation and replace in dataframe
+scaler.transform(df2) # Transformation only
+df2_std = pd.DataFrame(scaler.transform(df2), 
+                       columns=df2.columns) # Transformation and 
+# replace in dataframe done together like this
+
+df2_std.describe() # Confirm min is 0 and max is 1

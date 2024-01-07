@@ -1,0 +1,22 @@
+[answer53]
+
+t = t.sample(fraction=0.50)
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- To sample 50% of the data from a table,
+  use the .sample() method.
+- Input the sampling ratio into the fraction
+  argument ranging from 0 to 1.0.
+- Specifying the seed argument allows
+  for a consistent sampling method.
+
+t.sample(fraction=0.50, seed=42)
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.sample(frac=0.5)

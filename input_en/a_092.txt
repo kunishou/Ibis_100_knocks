@@ -1,0 +1,16 @@
+[answer92]
+
+t = t.drop('name', 'ticket', 'cabin', 'boat', 'body', 'home.dest')
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- To remove columns, use .drop().
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df_copy = df.drop(['name', 'ticket', 'cabin', 'boat', 'body', 'home.dest'], axis=1)
+df_copy

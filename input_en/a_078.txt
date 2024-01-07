@@ -1,0 +1,19 @@
+[answer78]
+
+display(t.filter(t["fare"] == t["fare"].max()))  
+display(t.filter(t["fare"] == t["fare"].min()))  
+
+* display output is used here instead  
+  of print as it is more readable.
+
+----------------------------------------------
+
+[Tips]  
+No particular tips.
+
+----------------------------------------------
+
+[Reference] pandas syntax  
+
+print(df['fare'].idxmax())  
+print(df['fare'].idxmin())  

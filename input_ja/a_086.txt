@@ -1,0 +1,34 @@
+[answer86]
+
+ibis.set_backend("duckdb")
+
+t = ibis.read_csv(INPUT_DIR + "titanic3.csv", table_name="titanic")
+
+sql = """
+      select
+        `name`,
+        `sex`,
+        `age`,
+        `fare`
+      from `titanic`
+      where `age` >= 30
+      """
+
+t.sql(sql, dialect="mysql")
+
+
+----------------------------------------------
+
+[Tips]
+・.sql() の引数 dialect で SQL の種類を指定することで
+　SQLの方言を吸収して SQL を実行できる（今回は DuckDB 上で
+　MySQL を実行している）。
+
+　※ MySQL ではカラム名、テーブル名が ` （バックカンマ）で囲われている。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+該当メソッドなし
+

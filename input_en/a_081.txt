@@ -1,0 +1,54 @@
+[answer81]
+
+from sklearn.preprocessing import OrdinalEncoder
+
+df = t.execute() # Convert the table to a dataframe
+
+# Create an instance of the label encoder
+oe = OrdinalEncoder(dtype=int,
+                    handle_unknown = 'use_encoded_value',
+                    unknown_value = -1
+                    )
+
+df['sex'] = oe.fit_transform(df[['sex']]) # Encoding
+df.head()
+
+
+----------------------------------------------
+
+[Tips]
+- scikit-learn cannot handle database table objects,
+  so convert them to a dataframe with .execute().
+- In machine learning, strings cannot be fed directly 
+  into learning algorithms, so they are converted 
+  to numerical values. OrdinalEncoder() converts 
+  strings to numbers, like the following:
+
+  male -> 0
+  female -> 1
+
+- The handle_unknown and unknown_value arguments 
+  of OrdinalEncoder() specify the value to label 
+  with, in case a label that did not exist at learning 
+  time appears during inference.
+- In classification problems with decision trees 
+  like RandomForest, labeling encoding is 
+  often performed.
+- Be careful, as encoding values may be 
+  incorrect if pyarrow has not been installed 
+  with pip install.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+from sklearn.preprocessing import OrdinalEncoder
+
+# Create an instance of the label encoder
+oe = OrdinalEncoder(dtype=int,
+                    handle_unknown = 'use_encoded_value',
+                    unknown_value = -1
+                    )
+
+df['sex'] = oe.fit_transform(df[['sex']]) # Encoding
+df.head()

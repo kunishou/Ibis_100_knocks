@@ -1,0 +1,20 @@
+[answer28]
+
+t.filter(t["cabin"].notnull())
+# t.filter(~t["cabin"].isnull()) # alternative solution
+
+
+----------------------------------------------
+
+[Tips]
+By using the filter() method and the .notnull()  
+method, you can extract data that is not null.
+You can also achieve the desired data  
+extraction by using the negation '~' and  
+the .isnull() method.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df[~df['cabin'].isnull()]

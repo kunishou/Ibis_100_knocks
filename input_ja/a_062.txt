@@ -1,0 +1,25 @@
+[answer62]
+
+t_merge = t2.join(t3, t2.name == t3.name, how="left")
+
+# 別解
+# t_merge = t2.left_join(t3, "name")
+
+t_merge
+
+
+----------------------------------------------
+
+[Tips]
+・左結合では、t2 に存在するレコードに t3 のレコードを結合する
+・結合キーを t2.name == t3.name のように name 列を指定
+・how=''で結合方法を指定
+・別解のように .left_join() を使うこともできる。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df2 = pd.merge(df2,df3,on='name',how='left')
+df2
+

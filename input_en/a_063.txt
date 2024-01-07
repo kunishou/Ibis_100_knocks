@@ -1,0 +1,23 @@
+[answer63]
+
+t_merge = t3.join(t2, t3.name == t2.name, how="left")
+t_merge
+
+
+
+----------------------------------------------
+
+[Tips]
+- In a right join, records from t3 are left-joined
+  to records from t2.
+- The join key is specified by setting
+  t2.name == t3.name to the name column.
+- The join method is specified
+  by how=''.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = pd.merge(df2, df3, on='name', how='right')
+df2

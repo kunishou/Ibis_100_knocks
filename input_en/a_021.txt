@@ -1,0 +1,17 @@
+[answer21]
+
+display(t[0:4])
+display(t[3:10])
+
+----------------------------------------------
+
+[Tips]
+- You can display data from 
+line n to line m using t[n:m].
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+display(df[0:4])
+display(df[3:10])

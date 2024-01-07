@@ -1,0 +1,49 @@
+[answer75]
+
+from sklearn.preprocessing import StandardScaler
+
+df2 = t2.drop("name", "class").execute() # Remove unnecessary columns 
+and convert to a DataFrame
+
+# Define normalization
+scaler = StandardScaler()
+
+# Standardization and DataFrame conversion
+df2_std = pd.DataFrame(scaler.fit_transform(df2.to_numpy()), 
+columns=df2.columns)
+
+df2_std.describe() # Check that std for the three columns 
+is now equal
+
+
+-------------------------------------------------
+
+[Tips]
+- Since a database table object cannot be processed 
+directly by scikit-learn, t2 is converted to a DataFrame 
+via .execute() and passed to df2.
+- To standardize a DataFrame, use scikit-learn's 
+StandardScaler.
+- When standardizing, you must convert the DataFrame to 
+an ndarray with to_numpy() like in fit_transform(df2.to_numpy()), 
+otherwise the results will be incorrect.
+
+-------------------------------------------------
+
+[Reference] pandas syntax
+
+from sklearn.preprocessing import StandardScaler
+
+df2 = df2.drop(['name','class'], axis=1) # Remove unnecessary columns
+
+# Define standardization
+scaler = StandardScaler()
+scaler.fit(df2)
+
+# Transformation and DataFrame replacement
+scaler.transform(df2) # Just transform
+df2_std = pd.DataFrame(scaler.transform(df2), 
+columns=df2.columns) # Combining transform and DataFrame 
+replacement
+
+df2_std.describe() # Check that std is equal

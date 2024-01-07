@@ -1,0 +1,30 @@
+[answer43]
+
+t = t.mutate(
+    test=1,
+    test2=None
+)
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- You can add multiple new
+  columns using .mutate().
+- When using .name(), write as
+  shown below.
+
+t = t.mutate(
+    ibis.literal(1).name("test")
+).mutate(
+    ibis.literal(None).name("test2")
+)
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['test'] = 1
+df['test2'] = None
+df.head()

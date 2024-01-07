@@ -1,0 +1,16 @@
+[answer33]
+
+t["embarked"].value_counts()
+
+----------------------------------------------
+
+[Tips]
+- To check unique elements and the
+  number of occurrences, use
+  .value_counts().
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['embarked'].value_counts()

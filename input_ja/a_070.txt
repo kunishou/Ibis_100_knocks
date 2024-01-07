@@ -1,0 +1,23 @@
+[answer70]
+
+t2 = t2.drop("class")
+t2 = t2.mutate(
+    row_sum=sum([t2[col] for col in t2.select(s.numeric()).columns])
+)
+
+t2
+
+
+----------------------------------------------
+
+[Tips]
+・行方向のpl.sum(['列名1','列名2'])の加算したい列名を記載して書く
+・列方向の合計値の確認はsum()を使用
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df2 = df2.drop(['class'],axis=1)
+print(df2.sum(axis=1)) #行方向の合計
+

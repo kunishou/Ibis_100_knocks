@@ -1,0 +1,27 @@
+[answer52]
+
+t2 = t.dropna(["age", "cabin"])
+
+t2.aggregate(
+    t2[col].isnull().sum().name(col) for col in t2.columns
+)
+
+----------------------------------------------
+
+[Tips]
+- To remove rows with missing
+  values, use the dropna() method.
+- The aggregate function
+  is used to perform aggregation
+  operations such as sum, average,
+  maximum, minimum, and count
+  for specific columns within the
+  table, often used in conjunction
+  with the group_by function.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df = df.dropna()
+df.isnull().sum()

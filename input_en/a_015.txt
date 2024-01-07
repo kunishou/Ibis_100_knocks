@@ -1,0 +1,16 @@
+[answer15]
+
+t.columns
+
+----------------------------------------------
+
+[Tips]
+
+To display a list of column names
+in a table, use .columns.
+
+----------------------------------------------
+
+[Reference] pandas notation
+
+df.columns

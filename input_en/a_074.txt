@@ -1,0 +1,26 @@
+[answer74]
+
+t.select(s.numeric()).execute().corr()
+
+----------------------------------------------
+
+[Tips]
+- Ibis does not have a method for calculating
+correlation coefficients like pandas does.
+- Therefore, you use .execute() to obtain a
+dataframe, then you run the pandas corr() method
+on it.
+- Be aware that code adjustments may be
+necessary if you are not using a pandas backend.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.corr()
+
+The pandas corr() method automatically
+narrows down to the numerical columns
+and performs the correlation calculation.
+Also, it ignores nulls within the
+numeric columns for the calculation.

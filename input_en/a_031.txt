@@ -1,0 +1,20 @@
+[answer31]
+
+import ibis.selectors as s
+
+t.select(s.of_type("string"))
+
+
+----------------------------------------------
+
+[Tips]
+- Use selectors and .of_type() method to 
+extract only data of a certain data type.
+- Need to import ibis.selectors to use 
+a selector.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.select_dtypes(include='object')

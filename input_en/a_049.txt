@@ -1,0 +1,25 @@
+[answer49]
+
+t2 = t2.relabel({
+    "English": "Biology",
+    "Mathematics": "Physics",
+    "History": "Chemistry",
+})
+
+t2.head()
+
+---------------------------------------------
+
+[Tips]
+- By passing a dictionary to .relabel()
+  with old and new column names,
+  you can change column names
+  all at once.
+
+---------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = df2.rename(columns={'English': 'Biology'})
+df2.head()
+

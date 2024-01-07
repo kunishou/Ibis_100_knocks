@@ -1,0 +1,37 @@
+[answer34]
+
+t = t.mutate(
+    fare=t["fare"] + 100
+)
+
+# Alternate solution
+# t = t.mutate(
+#     (t["fare"] + 100).name("fare")
+# )
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- You can use .mutate() to apply processes to
+  existing columns.
+- If you want to add a new column called "fare2,"
+  you can write as follows:
+
+t = t.mutate(
+    fare2=t["fare"] + 100
+)
+
+- You can also use .name() to specify the 
+  column name to apply, as in the alternate 
+  solution. However, when using name(), 
+  you can only write a single process inside 
+  mutate(). More details will follow.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['fare'] = df['fare'] + 100
+df.head()

@@ -1,0 +1,23 @@
+[answer22]
+
+import ibis.selectors as s
+
+t.select(s.all())
+
+----------------------------------------------
+
+[Tips]
+- Using select() and selector allows for
+  explicitly displaying the entire table.
+- To use selector, one must import
+  ibis.selectors.
+- While the execution result is the same as
+  display(t), it is used when one wants to
+  explicitly indicate that the entire table is
+  being extracted to improve readability.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.iloc[:, :]

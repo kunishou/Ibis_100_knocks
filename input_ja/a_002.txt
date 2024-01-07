@@ -1,0 +1,31 @@
+[answer2]
+
+ibis.set_backend("pandas")
+ibis.get_backend()
+
+
+----------------------------------------------
+
+[Tips]
+・Ibis のバックエンドをセットするには ibis.set_backend()を、
+　バックエンドを確認するには ibis.get_backend() を使用する。
+・以下の処理エンジンをサポートしている。
+
+bigquery , clickhouse , dask , datafusion , druid , duckdb , exasol ,
+flink , impala , mssql , mysql , oracle , pandas , polars , postres ,
+pyspark , snowflake , sqlite , trino
+
+DuckDB については MotherDuck への接続もサポートしている。
+また、バックエンドで CuDF を使用することも可能である。
+CuDF を使用については以下の記事を参照。
+
+https://voltrondata.com/resources/ibis-cudf-pandas
+
+・バックエンドに指定する処理エンジンにより、一部機能しない Ibis メソッドが
+　ある点に注意する（ pandas では実行できたが duckdb ではエラーになる等 ）
+
+----------------------------------------------
+
+[参考] pandas記法
+
+該当メソッドなし

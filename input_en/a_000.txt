@@ -1,0 +1,8 @@
+[answer0]
+
+Here is an example of the solution code displayed here.
+When displaying solution code examples for each problem, 
+remove the "#" before "print" and execute it.
+
+Copy and paste the code example into a cell and execute it
+to see the correct data.

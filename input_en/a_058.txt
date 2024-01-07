@@ -1,0 +1,15 @@
+[answer58]
+
+t["name"].split(".")[0]
+
+----------------------------------------------
+
+[Tips]
+- To split a string, use .split().
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['sex'] = df['sex'].replace('female','Python')
+df

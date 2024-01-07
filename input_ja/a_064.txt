@@ -1,0 +1,20 @@
+[answer64]
+
+t_merge = t2.join(t3, t2.name == t3.name, how="inner")
+t_merge
+
+
+----------------------------------------------
+
+[Tips]
+・内部結合では、t2 と t3 の共通のキーのみで結合する
+・結合キーを t2.name == t3.name のように name 列を指定
+・how=''で結合方法を指定
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df2 = pd.merge(df2,df3,on='name',how='inner')
+df2
+

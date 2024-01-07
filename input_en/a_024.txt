@@ -1,0 +1,23 @@
+[answer24]
+
+t_copy = t.select("name", "age", "sex")
+t_copy.execute().to_csv('./output/sample.csv')
+
+----------------------------------------------
+
+[Tips]
+Ibis does not have a file output function. 
+Therefore, when outputting a file, 
+convert the table to a pandas dataframe 
+with .execute() and output the file with 
+pandas' to_csv() method. 
+If the backend is changed from pandas to 
+something else, this part will need to 
+be modified.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df_copy = df[['name', 'age', 'sex']]
+df_copy.to_csv('../output/sample.csv')

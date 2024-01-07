@@ -1,0 +1,50 @@
+[answer13]
+
+t.info()
+
+----------------------------------------------
+
+[Tips]
+To check the metadata of a table, use the .info() method.
+When executed, data with the following columns is obtained:
+
+name:
+Indicates the name of each column in the table.
+Each column represents a different aspect of the data within the table.
+
+type:
+Indicates the data type of each column, such as int64, float64, string, etc.
+Data type affects the operations and functions that can be used with that column,
+as well as how the column is processed in the database.
+
+nullable:
+Indicates whether the column is allowed to contain NULL values.
+If True, the column can contain NULL values.
+If False, the column cannot contain NULL values.
+
+nulls:
+Indicates the number of NULL values in a column.
+This is particularly important for data cleansing and dealing with missing values.
+
+non_nulls:
+Indicates the number of non-NULL values in a column, that is,
+the number of records that actually have a value.
+
+null_frac:
+Indicates the fraction of NULL values within a column.
+This represents the ratio of the number of NULL values to the total number of records,
+and is useful for assessing data quality and the impact of missing values.
+
+pos:
+Indicates the position of a column within the table.
+The first column is numbered as 0, and each subsequent column is numbered in the order that follows.
+The position of a column is important when it relates to data manipulation or column selection.
+
+----------------------------------------------
+
+[Reference] pandas notation
+
+df.info()
+
+* Note that pandas' info() does not display statistical information.
+To check statistical information with pandas, use df.describe().

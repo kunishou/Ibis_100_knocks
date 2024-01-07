@@ -1,0 +1,24 @@
+[answer6]
+
+print(t.count()) # number of rows
+print(len(t.schema())) # number of columns
+
+----------------------------------------------
+
+[tips]
+
+- By using the .count() method, 
+  you can count the number of rows 
+  in a table.
+
+- By using the .schema() method, 
+  you can check the data structure 
+  of the table, and using 
+  len(t.schema()), you can count 
+  the number of columns.
+
+----------------------------------------------
+
+[reference] pandas syntax
+
+df.shape

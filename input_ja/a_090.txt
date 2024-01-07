@@ -1,0 +1,25 @@
+[answer90]
+
+t.aggregate(
+    t[col].isnull().sum().name(col) for col in t.columns
+)
+
+
+----------------------------------------------
+
+[Tips]
+・t["列名"].isnull().sum() で欠損値数を確認する。
+・for 文で列数分の欠損値を確認する。
+・aggregate でテーブル形式で欠損値数をまとめる。
+　テーブル形式にこだわらないのであれば以下の形でも問題ない。
+
+for col in t.columns:
+  print(col)
+  print(t[col].isnull().sum())
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df.isnull().sum()
+

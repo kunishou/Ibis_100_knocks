@@ -1,0 +1,25 @@
+[answer89]
+
+ibis.options.repr.interactive.max_rows = 30
+t
+
+----------------------------------------------
+
+[Tips]
+- ibis.options.repr.interactive.max_rows allows
+  you to specify the maximum number of rows
+  to display.
+- Note that the number of columns has no
+  default display limit, so there is no
+  equivalent to max_columns.
+- For more information on ibis.options,
+  refer to the page below.
+
+https://ibis-project.org/reference/options
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+No corresponding method
+

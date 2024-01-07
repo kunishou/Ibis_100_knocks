@@ -1,0 +1,17 @@
+[answer100]
+
+df_pred = pd.DataFrame(pred)
+df_pred.to_csv('./output/submission.csv', index=False)
+
+----------------------------------------------
+
+[Tips]
+- Use to_csv() to output in CSV format.
+- Specify index=False when you do not want to 
+attach an index during output.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+Same as the answer for Ibis

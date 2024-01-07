@@ -1,0 +1,25 @@
+[answer80]
+
+print(t['age'].mode())
+
+# 要素数を降順で並べて最頻要素を確認
+t_count = t['age'].value_counts()
+print(t_count.order_by(ibis.desc("age_count")))
+
+
+----------------------------------------------
+
+[Tips]
+・最頻値を取得する場合は mode()を使用
+・pandasのmode()と違い文字列のみに適用可能。数値列に適用したい場合は
+　文字列型に変換する必要あり
+・age列はnullが多くnull込みで最頻値を求めると、nullが最頻値になってしまうため
+　filter(~pl.col('age').is_null())でnullを除外している
+
+----------------------------------------------
+
+[参考] pandas記法
+
+print(df['age'].mode())
+print(df['age'].value_counts())
+

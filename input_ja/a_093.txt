@@ -1,0 +1,50 @@
+[answer93]
+
+from sklearn.preprocessing import OrdinalEncoder
+
+df = t.execute() # テーブルをデータフレームに変換
+
+#ラベルエンコーダのインスタンスを作成
+oe = OrdinalEncoder(dtype=int,
+                    handle_unknown = 'use_encoded_value',
+                    unknown_value = -1
+                    )
+
+df['sex'] = oe.fit_transform(df[['sex']]) #エンコーディング
+df['embarked'] = oe.fit_transform(df[['embarked']].astype(str))  #ここ、なぜかstrに変換しないとエラー発生
+df.head()
+
+
+----------------------------------------------
+
+[Tips]
+・scikit-learn はデータベーステーブルオブジェクトを扱えないので
+　.execute() でデータフレームに変換する。
+・機械学習では文字列をそのまま、学習アルゴリズムに
+　入力できないため、数値に変換する。OrdinalEncoder()では
+　例えば、以下のように文字列を数値に変換する。
+
+　male → 0
+　female → 1
+
+・OrdinalEncoder() の hadle_unknown , unknown_value 引数では、推論時に
+　学習時に存在していなかったラベルがあった場合に、どの値でラベル付けするかを指定している。
+・RandomForestなど決定木での分類問題を
+　解く場合には、ラベルエンコーディングする
+　ことが多い
+
+----------------------------------------------
+
+[参考] pandas記法
+
+from sklearn.preprocessing import OrdinalEncoder
+
+#ラベルエンコーダのインスタンスを作成
+oe = OrdinalEncoder(dtype=int,
+                    handle_unknown = 'use_encoded_value',
+                    unknown_value = -1
+                    )
+
+df['sex'] = oe.fit_transform(df[['sex']]) #エンコーディング
+df['embarked'] = oe.fit_transform(df[['embarked']].astype(str))  #ここ、なぜかstrに変換しないとエラー発生
+df.head()

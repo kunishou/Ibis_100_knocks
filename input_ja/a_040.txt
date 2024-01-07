@@ -1,0 +1,36 @@
+[answer40]
+
+t = t.mutate(
+    ibis.case().when(t["sex"] == "male", "0")
+               .when(t["sex"] == "female", "1")
+               .else_(t["sex"]).end()
+               .name("sex")
+)
+
+# 別解
+# t = t.mutate(
+#     sex=(t['sex'] == "male").ifelse("0", t["sex"])
+# ).mutate(
+#     sex=(t['sex'] == "female").ifelse("1", t["sex"])
+# )
+
+t.head()
+
+
+----------------------------------------------
+
+[Tips]
+・Ibis の pandas バックエンドに列番号を割り振るメソッドがないため（正確に言うと row_number というメソッドが
+　存在しているが pandas は未対応）、.execute() でデータフレームにし、そこに pandas の reset_index() を適用している。
+　バックエンドを pandas 以外に変更する場合はここも修正が必要になる。
+・ case().when().else_().end() 構文を使用しても特定データの変更が可能である。
+・別解のように ifelse を複数回使用して操作することも可能である。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df['sex'][df['sex'] == 'male'] = 0
+df['sex'][df['sex'] == 'female'] = 1
+df.head()
+

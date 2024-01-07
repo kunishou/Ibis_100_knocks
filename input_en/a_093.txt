@@ -1,0 +1,53 @@
+[answer93]
+
+from sklearn.preprocessing import OrdinalEncoder
+
+df = t.execute() # Convert table to DataFrame
+
+# Create an OrdinalEncoder instance
+oe = OrdinalEncoder(dtype=int,
+                    handle_unknown = 'use_encoded_value',
+                    unknown_value = -1
+                    )
+
+df['sex'] = oe.fit_transform(df[['sex']]) # Encoding
+df['embarked'] = oe.fit_transform(df[['embarked']].astype(str)) # For some reason,
+# an error occurs if not converted to str
+df.head()
+
+----------------------------------------------
+
+[Tips]
+- scikit-learn cannot handle database table objects,
+so convert them to DataFrame with .execute().
+- In machine learning, strings cannot be directly
+input into learning algorithms, so they must be
+converted to numbers. For example,
+OrdinalEncoder() converts strings to numbers like:
+
+  male -> 0
+  female -> 1
+
+- In the handle_unknown, unknown_value arguments
+of OrdinalEncoder(), specifying the value to label
+for labels not present during training, during inference.
+- For classification problems with decision trees
+like RandomForest, it is common to
+use label encoding
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+from sklearn.preprocessing import OrdinalEncoder
+
+# Create an OrdinalEncoder instance
+oe = OrdinalEncoder(dtype=int,
+                    handle_unknown = 'use_encoded_value',
+                    unknown_value = -1
+                    )
+
+df['sex'] = oe.fit_transform(df[['sex']]) # Encoding
+df['embarked'] = oe.fit_transform(df[['embarked']].astype(str)) # For some reason,
+# an error occurs if not converted to str
+df.head()

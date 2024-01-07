@@ -1,0 +1,25 @@
+[answer59]
+
+t = ibis.memtable(t.execute().reset_index()) # Create index column
+
+t2 = t.mutate(
+    name=ibis.case().when(t["index"] == 2, t["name"].replace("Allison", "Olivia"))
+                    .else_(t["name"])
+                    .end()
+)
+
+t2.head()
+
+----------------------------------------------
+
+[Tips]
+- To replace strings, use .replace().
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+import re
+
+df["name"][2] = df["name"].str.replace('Allison','Olivia')
+df["name"][2]

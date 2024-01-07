@@ -1,0 +1,20 @@
+[answer32]
+
+import ibis.selectors as s
+
+t.select(s.numeric())
+
+
+----------------------------------------------
+
+[Tips]
+- Using selectors and s.numeric() (selecting numeric types),
+  you can extract only data of specific data types.
+- To use selectors, you must import ibis.selectors.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.nunique()
+

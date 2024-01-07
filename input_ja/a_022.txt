@@ -1,0 +1,22 @@
+[answer22]
+
+import ibis.selectors as s
+
+t.select(s.all())
+
+
+----------------------------------------------
+
+[Tips]
+・select() と selector を使用することで明示的に table 全体を
+　表示することができる。
+・selector を使用するには ibis.selectors を import する必要がる。
+・実行結果は display(t) と同じだが、table 全体を抽出していることを
+　明示的に示して可読性を向上させたいときに使用する。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df.iloc[:, :]
+

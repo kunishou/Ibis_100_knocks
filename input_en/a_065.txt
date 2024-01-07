@@ -1,0 +1,20 @@
+[answer65]
+
+t_merge = t2.join(t3, t2.name == t3.name, how="outer")
+t_merge
+
+----------------------------------------------
+
+[Tips]
+- In an outer join, records from both t2 and t3
+  are kept in the merge (inner for an AND join, outer
+  for an OR join).
+- Specify the join key with columns like t2.name == t3.name.
+- Specify the join method with how=''.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = pd.merge(df2, df3, on='name', how='outer')
+df2

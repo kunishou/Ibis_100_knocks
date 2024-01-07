@@ -1,0 +1,21 @@
+[answer23]
+
+t[t.columns[2:10]]
+
+----------------------------------------------
+
+[Tips]
+To extract a specific range of columns, 
+use t.columns to get a list of 
+column names and specify the range 
+you want to extract with a slice.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.loc[:,'name':'cabin']
+
+In pandas, you can specify the range of columns 
+to extract by using loc with the 
+column names.

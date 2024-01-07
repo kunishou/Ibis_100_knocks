@@ -1,0 +1,28 @@
+[answer9]
+
+t_copy = t
+t_copy.head()
+
+----------------------------------------------
+
+[Tips]
+- Ibis does not have a copy method like pandas does. This is
+  because Ibis is not a library for directly manipulating
+  dataframes, but for building queries for data
+  manipulation. Moreover, Ibis query expressions perform
+  lazy evaluation on the actual data on the database, so
+  there is no concept of copying the data itself.
+- However, as the answer shows, it is possible to achieve an
+  effect similar to pandas' copy method. In this case, 
+  after the operation t_copy = t, manipulating the value
+  of t does not affect t_copy because, in the chronological
+  order of the query expressions, t = t_copy is executed
+  earlier.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df_copy = df.copy()
+df_copy.head()
+

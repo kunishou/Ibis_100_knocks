@@ -1,0 +1,35 @@
+[answer73]
+
+t2 = t2.drop('name')  
+t2.group_by('class').aggregate(  
+    english_max=t2["English"].max(),  
+    mathematics_max=t2["Mathematics"].max(),  
+    history_max=t2["History"].max(),  
+    english_min=t2["English"].min(),  
+    mathematics_min=t2["Mathematics"].min(),  
+    history_min=t2["History"].min(),  
+    english_mean=t2["English"].mean(),  
+    mathematics_mean=t2["Mathematics"].mean(),  
+    history_mean=t2["History"].mean()  
+)
+
+-------------------------------------------------
+
+[Tips]  
+- After grouping by "class",  
+  it carries out aggregation operations  
+  like max, min, and mean for all columns.  
+- Suffixes "_mean", "_max", "_min"  
+  are appended to the columns with the  
+  results of the operations.
+
+-------------------------------------------------
+
+[Reference] pandas syntax  
+
+df2.drop(['name'], axis=1, inplace=True)  
+pd.concat([df2.groupby('class').mean().add_suffix('_mean'),  
+           df2.groupby('class').max().add_suffix('_max'),  
+           df2.groupby('class').min().add_suffix('_min')],  
+          axis=1  
+         )  

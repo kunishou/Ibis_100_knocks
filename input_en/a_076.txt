@@ -1,0 +1,43 @@
+[answer76]
+
+from sklearn.preprocessing import StandardScaler
+
+df2 = t2.execute() # Convert to DataFrame
+
+# Define Standardization
+scaler = StandardScaler()
+
+# Standardization and conversion to DataFrame
+df2_std = pd.DataFrame(scaler.fit_transform(df2['English'].values.reshape(-1, 1)))
+
+df2_std.describe() # Check that std is the same as
+English in [75]
+
+------------------------------------------------
+
+[Tips]
+- Since the database table object cannot be processed
+by scikit-learn as is, t2 is converted to a DataFrame
+by using .execute() and passed to df2.
+- To standardize a single column of a DataFrame,
+you can also convert it to an array using
+values.reshape(-1, 1).
+- reshape(-1, 1) will convert it to an array
+with n rows and 1 column.
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+from sklearn.preprocessing import StandardScaler
+
+# Define Standardization
+scaler = StandardScaler()
+scaler.fit(df2['English'].values.reshape(-1, 1))
+
+# Convert and replace in DataFrame
+scaler.transform(df2['English'].values.reshape(-1, 1)) # Only convert
+df2_std = pd.DataFrame(scaler.transform(df2['English'].values.reshape(-1, 1))) # To do the conversion and replacement in the DataFrame at once, it will be like this
+
+df2_std.describe() # Check that std is the same as
+English in [75]

@@ -1,0 +1,23 @@
+[answer71]
+
+t2.aggregate(
+    t2[col].sum() for col in ["English", "Mathematics", "History"]
+)
+
+
+----------------------------------------------
+
+[Tips]
+- Using the aggregate() method, you can perform 
+ aggregate operations such as the sum, average, 
+ maximum, minimum, and count for specific 
+ columns. It is often used in combination with 
+ group_by().
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = df2.drop(['class'], axis=1)
+print(df2.sum()) # Sum along the columns
+

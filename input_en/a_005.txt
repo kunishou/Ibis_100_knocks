@@ -1,0 +1,20 @@
+[answer5]
+
+t[-5:]
+
+
+----------------------------------------------
+
+[tips]
+Unlike pandas, Ibis does not have a
+tail() method. To display the end of
+data, use slicing.
+Writing [-5:] shows the last 5
+rows of the data.
+
+----------------------------------------------
+
+[Reference] pandas notation
+
+df.tail()
+

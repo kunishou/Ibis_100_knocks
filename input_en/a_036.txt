@@ -1,0 +1,40 @@
+```
+[answer36]
+
+t = t.mutate(
+    fare=t["fare"] * 2,
+    age=t["age"] + 3
+)
+
+# Alternative Solution
+# t = t.mutate(
+#     (t["fare"] * 2).name("fare")
+#     ).mutate(
+#     (t["age"] + 3).name("age")
+#     )
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- Use .mutate() to apply operations to existing columns.
+- If you want to write multiple operations like 
+  in the alternative solution, you need to 
+  separate .mutate() for each operation.
+  (Having multiple .name()s within one mutate call
+  as below will lead to an error)
+
+t = t.mutate(
+    (t["fare"] * 2).name("fare"),
+    (t["age"] + 3).name("age")
+    )
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['fare'] = df['fare'] * 2
+df['age'] = df['age'] + 3
+df.head()
+```

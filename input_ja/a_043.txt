@@ -1,0 +1,30 @@
+[answer43]
+
+t = t.mutate(
+    test=1,
+    test2=None
+)
+
+t.head()
+
+
+----------------------------------------------
+
+[Tips]
+・.mutate() で新しい列を複数追加することもできる。
+・.name() を用いる場合は以下のように書く。
+
+t = t.mutate(
+    ibis.literal(1).name("test")
+).mutate(
+    ibis.literal(None).name("test2")
+)
+
+----------------------------------------------
+
+[参考] pandas記法
+
+
+df['test'] = 1
+df['test2'] = None
+df.head()

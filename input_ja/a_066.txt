@@ -1,0 +1,29 @@
+[answer66]
+
+t2 = ibis.memtable(t2.execute().reset_index()) # index 列を作成
+t4 = ibis.memtable(t4.execute().reset_index()) # index 列を作成
+
+t2 = t2.join(t4, t2.index == t4.index, how="outer") # index 列をキーにマージ
+
+# 別解
+# t2 = pd.concat([t2.execute(), t4.drop("name").execute()], axis=1) # pandasメソッドで concat
+# t2 = ibis.memtable(t2)
+
+t2
+
+
+----------------------------------------------
+
+[Tips]
+・複数のtable を列方向に結合するときは、2つのテーブルに index を振り、
+　index をキーにマージしている。
+・ .excute() で pandas データフレームにしたデータを pandas の concat メソッドで
+　結合する。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df2 = pd.concat([df2,df4],axis=1)
+df2
+

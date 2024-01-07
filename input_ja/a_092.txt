@@ -1,0 +1,17 @@
+[answer92]
+
+t = t.drop('name', 'ticket', 'cabin', 'boat', 'body', 'home.dest')
+t.head()
+
+
+----------------------------------------------
+
+[Tips]
+・列の削除をするには .drop() を使用する。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df_copy = df.drop(['name', 'ticket', 'cabin', 'boat', 'body', 'home.dest'],axis=1)
+df_copy

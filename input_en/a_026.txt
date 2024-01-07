@@ -1,0 +1,21 @@
+[answer26]
+
+t.filter(t["sex"] == "female")
+
+----------------------------------------------
+
+[Tips]
+- We can use the filter() method even when extracting
+data based on string values.
+- When you want to filter data according to
+specific conditions, use the filter() method.
+(It's similar to the query method in pandas.)
+- Although you can write in a pandas-like manner
+as an alternative, using filter() often
+provides better readability.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df[df['sex'] == 'female']

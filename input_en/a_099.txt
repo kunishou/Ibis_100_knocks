@@ -1,0 +1,21 @@
+[answer99]
+
+importance = model.feature_importances_ 
+
+print('Feature Importances:')
+for i, feat in enumerate(['pclass','age','sex','fare','embarked']):
+    print('\t{0:20s} : {1:>.5f}'.format(feat, importance[i]))
+
+
+----------------------------------------------
+
+[Tips]
+- .feature_importances_ allows you to check 
+  the importance of each column (feature) in the 
+  learning of a random forest.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+Same as the answer for Ibis

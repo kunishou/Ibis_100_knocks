@@ -1,0 +1,15 @@
+[answer68]
+
+t["age"].mean()
+
+----------------------------------------------
+
+[Tips]
+- You can check the mean value
+of a column using t["column name"].mean()
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['age'].mean()

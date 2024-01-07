@@ -1,0 +1,17 @@
+[answer17]
+
+t['pclass']
+# df.select("pclass") # Alternative solution
+
+------------------------------------------------
+
+[tips]
+- To extract only a specific column from a table, write it as t["column_name"].
+- select() can also be used to extract a specific column.
+- If further data processing is to be done on the data after extracting a specific column, it is thought that using select() can improve the readability of the code.
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+df['pclass']

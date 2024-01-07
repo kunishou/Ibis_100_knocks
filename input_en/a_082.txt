@@ -1,0 +1,27 @@
+[answer82]
+
+df = t.execute()  # Convert table to a dataframe
+
+df = pd.get_dummies(df, columns=['sex'])
+df.head()
+
+
+----------------------------------------------
+
+[Tips]
+- Since Ibis does not have a method for one-hot encoding,
+  we execute pandas' get_dummies() on a dataframe
+  obtained with .execute().
+- In machine learning, strings cannot be fed directly
+  into a learning algorithm, so they must be converted
+  to numbers. get_dummies() enables one-hot encoding.
+- In solving regression problems, one-hot encoding
+  is often performed
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df = pd.get_dummies(df, columns=['sex'])
+df.head()
+

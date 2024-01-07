@@ -1,0 +1,24 @@
+[answer95]
+
+from sklearn.model_selection import train_test_split
+
+(features, test_X, target, test_y) = train_test_split(features, target, test_size = 0.3, random_state = 0)
+
+------------------------------------------------
+
+[Tips]
+- Use train_test_split to divide data
+  into training and test data.
+- Specify the proportion to split
+  with test_size.
+- By setting the random_state, you can
+  fix the randomness used during data
+  splitting, which is helpful when you
+  want to ensure reproducibility
+  during validation.
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+Same as the answer for Ibis

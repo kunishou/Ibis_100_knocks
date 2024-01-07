@@ -1,0 +1,25 @@
+[answer45]
+
+t = t.mutate(
+    test=t["age"].cast("string") + "_" + t["embarked"]
+)
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- When combining a numerical column with a string,
+  you need to convert the numerical column to a string
+  type before combining.
+- Here, the age column is converted to a string type
+  with .cast() before being combined with the
+  embarked column.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['test'] = df['age'].astype(str).str.cat(df['embarked'], sep='_')
+df.head()
+

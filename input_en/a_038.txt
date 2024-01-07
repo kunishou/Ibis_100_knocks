@@ -1,0 +1,33 @@
+[answer38]
+
+t = ibis.memtable(t.execute().reset_index()) # create index column
+
+t = t.mutate(
+    age=(t['index'] == 3).ifelse(40, t["age"])
+)
+
+t.head()
+
+
+----------------------------------------------
+
+[Tips]
+- Since there is no method to assign column numbers 
+  in the Ibis pandas backend (more precisely, there is 
+  a method called row_number, but it is not supported 
+  in pandas), a dataframe is created with .execute(), 
+  and pandas' reset_index() is applied to it. 
+  This will also need to be altered if changing the 
+  backend to something other than pandas.
+- By using ifelse and writing age=(t['index'] == 3).ifelse(40, t["age"]), 
+  it is possible to perform the operation 
+  "if the value in the index column is 3, then change the value 
+  in the age column to 40, otherwise keep the age column value as is".
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.loc[3, 'age'] = 40
+df.head()
+

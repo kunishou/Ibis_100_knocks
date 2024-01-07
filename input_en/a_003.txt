@@ -1,0 +1,23 @@
+[answer3]
+
+t.head()
+
+----------------------------------------------
+
+In data processing libraries such as pandas, the variable  
+for storing data is known as df (DataFrame object),  
+but in Ibis, it is represented as t (database table object).
+
+[tips]
+- By using the .head() method, you can display  
+the first 5 rows.  
+- Also, you can specify the number  
+of rows you want to display, such as .head(30), by  
+putting the number inside the parentheses.
+
+----------------------------------------------
+
+[Reference] pandas notation
+
+df.head()
+

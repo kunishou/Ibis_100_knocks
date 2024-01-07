@@ -1,0 +1,35 @@
+[answer8]
+
+t.order_by("fare") # 昇順ソート
+# t.order_by(ibis.desc("fare")) # 降順ソート
+
+----------------------------------------------
+
+[Tips]
+・.order_by() メソッドを使用することで、特定の列でデータをソートできる。
+　デフォルトでは昇順になっている。
+・降順でソートしたい場合は t.order_by(t["fare"].desc()) のように書く。
+・t.order_by(ibis.desc("fare")) と書いても降順ソートができる。
+・複数列でソートすることも可能
+
+ex1) fare列で昇順ソートした後にage列で昇順ソートしたい場合
+※ リスト内でage列を先に書く点に注意
+
+t.order_by(["age", "fare"])
+
+ex2) fare列で降順ソートした後にage列で降順ソートしたい場合
+※ リスト内でage列を先に書く点に注意
+
+t.order_by([ibis.desc("age"), ibis.desc("fare")])
+
+ex3) fare列で降順ソートした後にage列で昇順ソートしたい場合
+※ リスト内でage列を先に書く点に注意
+
+t.order_by([ibis.asc("age"), ibis.desc("fare")])
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df.sort_values('fare')
+

@@ -1,0 +1,21 @@
+[answer54]
+
+display(t2)
+
+t2 = t2.distinct()
+t2
+
+----------------------------------------------
+
+[Tips]
+- To remove duplicate rows, use the 
+.distinct() method.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+display(df2)
+df2 = df2.drop_duplicates()
+df2
+

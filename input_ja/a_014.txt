@@ -1,0 +1,24 @@
+[answer14]
+
+display(t[["sex"]].distinct())
+display(t[["cabin"]].distinct())
+
+
+----------------------------------------------
+
+[Tips]
+・Ibis には pandas のようにユニークな要素を確認するメソッドはない。
+　そのため、各列の要素を確認する場合は、列ごとに重複削除を行い、
+　ユニークな要素を求める。
+
+※ 上記解答では結果の表示に display を用いているが print でも問題ない。
+　 （ table や dataframe を表示する際は display のほうが綺麗だと
+　　　作者の好みで display をここでは使ってます）
+
+----------------------------------------------
+
+[参考] pandas記法
+
+print(df['sex'].unique())
+print(df['cabin'].unique())
+

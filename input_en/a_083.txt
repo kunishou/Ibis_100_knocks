@@ -1,0 +1,30 @@
+[answer83]
+
+ibis.set_backend("duckdb")
+ibis.options.sql.default_limit = None
+
+t = ibis.read_csv(INPUT_DIR + "titanic3.csv", table_name="titanic")
+
+(
+t.sql("""
+  select
+    *
+  from titanic
+  where sex = 'male'
+  limit 5
+  """)
+)
+
+
+----------------------------------------------
+
+[Tips]
+- When you specify the table_name in ibis.read_csv(),
+  you can call it using the .sql() method as a database
+  table name.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+No equivalent method

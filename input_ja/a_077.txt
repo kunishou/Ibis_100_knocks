@@ -1,0 +1,46 @@
+[answer77]
+
+from sklearn.preprocessing import MinMaxScaler
+
+df2 = t2.drop("name", "class").execute() # 不要列を削除しデータフレームに変換
+
+# Min-Maxスケーリングを定義
+scaler = MinMaxScaler()
+
+# Min-Maxスケーリングとデータフレームへの変換
+df2_std = pd.DataFrame(scaler.fit_transform(df2), columns=df2.columns)
+
+df2_std.describe() # minが 0 , max が 1 になっていることを確認
+
+
+----------------------------------------------
+
+[Tips]
+・データベーステーブルオブジェクトのままでは scikit-learn で処理できないため、
+　t2 を .execute() でデータフレームに変換して df2 に渡している。
+・データフレームを Min-Max スケーリングする場合は、scikit-learn の
+　StandardScalerを使用する。
+・Min-Maxスケーリングでは最小値が0、最大値が1となるように
+　データを変換する。
+・fit_transform(df2.to_numpy())のようにdataframeをto_numpy()で
+　ndarray形式に変換しないと計算結果がおかしくなるので注意する。
+
+
+----------------------------------------------
+
+[参考] pandas記法
+
+from sklearn.preprocessing import MinMaxScaler
+
+df2 = df2.drop(['name','class'],axis=1) #不要列の削除
+
+# Min-Maxスケーリングを定義
+scaler = MinMaxScaler()
+scaler.fit(df2)
+
+# 変換とデータフレームへの置換
+scaler.transform(df2) # 変換のみ
+df2_std = pd.DataFrame(scaler.transform(df2), columns=df2.columns) # 変換とデータフレームへの置換をまとめて行うとこうなる
+
+df2_std.describe() #minが0、maxが1になっていることを確認
+

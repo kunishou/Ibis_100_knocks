@@ -1,0 +1,54 @@
+[answer11]
+
+# Checking the data type
+print(t['pclass'].type())
+
+# Casting the pclass column to string type
+t = t.mutate(
+    pclass=t['pclass'].cast('string')
+)
+
+# Checking the data type
+print(t['pclass'].type())
+
+----------------------------------------------
+
+[Tips]
+- To change the data type, use the .cast(data type) method.
+
+Examples of Ibis data types:
+    Integer: int64
+    Floating-point: float64
+    String: string
+
+- To add a new column or to update a column with a process, use .mutate().
+
+  .mutate(
+    column_name = process_content
+  )
+
+For example, to convert the pclass column to a string type and add it as a new column to the table:
+
+  t = t.mutate(
+      pclass2=t["pclass"].cast("string")
+  )
+
+By executing the code above and then running the following code, you can confirm that the string type pclass2 has been added to t:
+
+print(t['pclass', 'pclass2'].schema())
+
+Output:
+ibis.Schema {
+  pclass   int64
+  pclass2  string
+}
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+print(df['pclass'].dtype)
+df['pclass'] = df['pclass'].astype(str)
+print(df['pclass'].dtype)
+
+

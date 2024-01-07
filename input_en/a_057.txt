@@ -1,0 +1,20 @@
+[answer57]
+
+t = t.mutate(
+    sex=t["sex"].replace("female", "python")
+)
+
+t
+
+------------------------------------------------
+
+[Tips]
+- To replace a string, use the .replace('a', 'b') method.
+  (Replace string a with string b)
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+df['sex'] = df['sex'].replace('female', 'Python')
+df

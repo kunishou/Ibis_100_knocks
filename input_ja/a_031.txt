@@ -1,0 +1,20 @@
+[answer31]
+
+import ibis.selectors as s
+
+t.select(s.of_type("string"))
+
+
+----------------------------------------------
+
+[Tips]
+・selectors と .of_type() メソッドで特定のデータ型のデータのみを
+　抽出できる。
+・selector を使用するには ibis.selectors を import する必要がる。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df.select_dtypes(include='object')
+

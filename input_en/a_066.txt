@@ -1,0 +1,28 @@
+[answer66]
+
+t2 = ibis.memtable(t2.execute().reset_index()) # Create index column
+t4 = ibis.memtable(t4.execute().reset_index()) # Create index column
+
+t2 = t2.join(t4, t2.index == t4.index, how="outer") # Merge using index column as key
+
+# Alternative solution
+# t2 = pd.concat([t2.execute(), t4.drop("name").execute()], axis=1) # pandas method for concat
+# t2 = ibis.memtable(t2)
+
+t2
+
+----------------------------------------------
+
+[Tips]
+- When joining multiple tables horizontally, assign indexes to both tables
+  and merge using index as the key.
+- Use the pandas concat method to combine data converted to pandas
+  dataframes with .execute().
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = pd.concat([df2,df4], axis=1)
+df2
+

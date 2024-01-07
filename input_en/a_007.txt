@@ -1,0 +1,23 @@
+[answer7]
+
+t2 = ibis.read_csv(INPUT_DIR + "data1.csv")
+t2.head()
+
+------------------------------------------------
+
+[Tips]
+- Use ibis.read_csv() to load csv files.
+- The arguments you can pass to ibis.read_csv() 
+  depend on the processing engine specified 
+  for the backend.
+- For example, with the pandas backend, you can 
+  specify arguments for pandas.read_csv() such as 
+  skiprows, encoding, etc.
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = pd.read_csv('../input/data1.csv')
+df2.head()
+

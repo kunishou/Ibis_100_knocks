@@ -1,0 +1,57 @@
+[answer11]
+
+# データ型の確認
+print(t['pclass'].type())
+
+# pclass 列を文字列型にキャスト
+t = t.mutate(
+    pclass=t['pclass'].cast('string')
+)
+
+# データ型の確認
+print(t['pclass'].type())
+
+
+----------------------------------------------
+
+[Tips]
+・データ型を変更する場合は .cast(データ型) を使用する。
+
+Ibis のデータ型の一例
+　整数：int64
+　浮動小数：float64
+　文字列：string
+
+・新しい列を追加したり、特定列に処理をして列を更新する場合は .mutate()を用いる。
+　
+　.mutate(
+    列名 = 処理内容
+　)
+
+ex) pclass 列を文字列型に変換し、新しい列として table に追加したい場合
+
+  t = t.mutate(
+      pclass2=t["pclass"].cast("string")
+  )
+
+上記コードを実行後に以下のコードを実行すると t に文字列型の pclass2 が
+追加されていることを確認できます
+
+print(t['pclass', 'pclass2'].schema())
+
+Output：
+ibis.Schema {
+  pclass   int64
+  pclass2  string
+}
+
+
+----------------------------------------------
+
+[参考] pandas記法
+
+print(df['pclass'].dtype)
+df['pclass'] = df['pclass'].astype(str)
+print(df['pclass'].dtype)
+
+

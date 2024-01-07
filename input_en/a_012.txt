@@ -1,0 +1,22 @@
+[answer12]
+
+t2 = t2.mutate(
+    **{col: t2[col].cast('string') for col in t2.columns}
+)
+
+t2
+
+----------------------------------------------
+
+[Tips]
+- To change the data type, use .cast(data_type).
+- To convert all columns of the table to strings, use a for loop to apply .cast() to each column.
+
+----------------------------------------------
+
+[Reference] pandas notation
+
+df = df.astype(str)
+
+pandas' astype() function allows for bulk conversion for the entire data frame.
+

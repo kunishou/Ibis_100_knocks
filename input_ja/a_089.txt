@@ -1,0 +1,22 @@
+[answer89]
+
+ibis.options.repr.interactive.max_rows = 30
+t
+
+
+----------------------------------------------
+
+[Tips]
+・ibis.options.repr.interactive.max_rows で表示上限数を
+　指定することができる。
+・なお、列数についてはデフォルトで表示上限がないため、max_columns などは
+　存在しない。
+・ibis.options については以下のページを参照して下さい。
+
+https://ibis-project.org/reference/options
+
+----------------------------------------------
+
+[参考] pandas記法
+
+該当メソッドなし

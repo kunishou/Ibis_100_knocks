@@ -1,0 +1,28 @@
+[answer39]
+
+t = ibis.memtable(t.execute().reset_index()) # index 列の作成
+
+t = t.mutate(
+    ibis.case().when(t['index'] == 3, 40)
+               .else_(t['age'])
+               .end().name("age")
+)
+
+t.head()
+
+
+----------------------------------------------
+
+[Tips]
+・Ibis の pandas バックエンドに列番号を割り振るメソッドがないため（正確に言うと row_number というメソッドが
+　存在しているが pandas は未対応）、.execute() でデータフレームにし、そこに pandas の reset_index() を適用している。
+　バックエンドを pandas 以外に変更する場合はここも修正が必要になる。
+・ case().when().else_().end() 構文を使用しても特定データの変更は可能である。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df.loc[3,'age'] = 40
+df.head()
+

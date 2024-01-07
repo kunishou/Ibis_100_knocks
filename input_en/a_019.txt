@@ -1,0 +1,18 @@
+[answer19]
+
+t.select("name", "sex")
+
+
+----------------------------------------------
+
+[Tips]
+- You can extract specific columns
+  with select().
+- You can also write it as t["column1", 
+  "column2"].
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df[['name','sex']]

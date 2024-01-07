@@ -1,0 +1,45 @@
+```plaintext
+[answer40]
+
+t = t.mutate(
+    ibis.case().when(t["sex"] == "male", "0")
+               .when(t["sex"] == "female", "1")
+               .else_(t["sex"]).end()
+               .name("sex")
+)
+
+# Alternative solution
+# t = t.mutate(
+#     sex=(t['sex'] == "male").ifelse("0", t["sex"])
+# ).mutate(
+#     sex=(t['sex'] == "female").ifelse("1", t["sex"])
+# )
+
+t.head()
+
+--------------------------------------------------------
+
+[Tips]
+- Since there's no method in Ibis's pandas
+  backend to assign row numbers (precisely there's a
+  method called row_number, but pandas does
+  not support it), .execute() is used to convert it
+  to a DataFrame, to which pandas's reset_index() is
+  applied. If changing the backend from pandas, this
+  area will also need to be modified.
+- It's also possible to perform specific data
+  modifications by using the case().when().else_().end()
+  syntax.
+- As shown in the alternative solution, it's possible
+  to perform the operations by using ifelse
+  multiple times.
+
+--------------------------------------------------------
+
+[Reference] pandas syntax
+
+df['sex'][df['sex'] == 'male'] = 0
+df['sex'][df['sex'] == 'female'] = 1
+df.head()
+
+```

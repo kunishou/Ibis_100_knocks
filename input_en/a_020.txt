@@ -1,0 +1,24 @@
+[answer20]
+
+t.drop("name")
+
+
+----------------------------------------------
+
+[Tips]
+
+To extract data excluding certain columns,  
+use drop to remove the pertinent  
+columns and display the table.
+
+In pandas, drop allows the  
+deletion of both row and  
+column data, but with  
+Ibis, drop can only remove  
+column data.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.drop(['name'], axis=1)

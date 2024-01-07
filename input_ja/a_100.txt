@@ -1,0 +1,17 @@
+[answer100]
+
+df_pred = pd.DataFrame(pred)
+df_pred.to_csv('./output/submission.csv', index=False)
+
+
+----------------------------------------------
+
+[Tips]
+・to_csv() で csv 形式で出力する。
+・出力時に index を付けたくないときは index=False を指定する。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+Ibis の解答と同じ

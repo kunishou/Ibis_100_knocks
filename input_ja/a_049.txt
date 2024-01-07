@@ -1,0 +1,25 @@
+[answer49]
+
+t2 = t2.relabel({
+    "English" : "Biology",
+    "Mathematics" : "Phtsics",
+    "History" : "CHemistry",
+    }
+)
+
+t2.head()
+
+
+----------------------------------------------
+
+[Tips]
+・.relabel() に辞書型で変更前、変更後の列名を渡すと
+　一括で列名を変更することができる。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df2 = df2.rename(columns={'English' : 'Biology'})
+df2.head()
+

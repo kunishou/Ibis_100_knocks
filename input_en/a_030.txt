@@ -1,0 +1,17 @@
+[answer30]
+
+t.filter(t["name"].contains("Mrs"))
+
+----------------------------------------------
+
+[Tips]
+When you want to extract data that contains a 
+specific string, use the 
+.contains('string') method.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df.query('name.str.contains("Mrs")', 
+engine='python') 

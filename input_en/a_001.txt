@@ -1,0 +1,64 @@
+[answer1]
+
+ibis.options.interactive = True 
+
+----------------------------------------------
+
+[tips]
+By default, Ibis operates in low latency evaluation mode. 
+If you want to interactively check the results of data analysis, 
+or for debugging during development, 
+set ibis.options.interactive = True 
+for eager evaluation mode.
+
+- Lazy Evaluation mode
+In low latency mode, 
+evaluation is not performed until 
+actual execution is requested. This allows Ibis 
+to secure time for planning and optimizing 
+data processing. Specifically, Ibis 
+operations (filtering, selection, 
+aggregation, etc.) are not directly 
+executed on the databases or datasets to 
+which they should be applied, 
+but are accumulated as a plan of a 
+series of operations.
+
+The advantage of this mode is that 
+the queries sent to the database 
+are more efficient. Ibis sends to 
+the database a series of operations 
+on the data as a single optimized 
+query. This reduces network 
+overhead and reduces the 
+load on the database.
+
+To actually perform operations, 
+run the ".execute()" method 
+at the end of the code.
+
+- Eager Evaluation mode
+In eager evaluation mode, 
+each operation is performed 
+directly as it is written. 
+This is similar to the 
+standard Python evaluation method. 
+For example, when you apply a 
+filtering operation to 
+a dataset in Ibis, 
+the operation is immediately 
+sent to the database 
+and the result is returned. 
+
+The advantages of this mode are 
+immediacy and transparency. 
+You can see the results of 
+the operations immediately, and it 
+is convenient for debugging 
+and working with 
+small datasets. 
+
+----------------------------------------------
+
+[Reference] Notation in pandas 
+No corresponding method.

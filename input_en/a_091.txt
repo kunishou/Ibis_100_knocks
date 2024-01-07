@@ -1,0 +1,27 @@
+[answer91]
+
+t = t.mutate(
+    age=t["age"].fillna(t["age"].mean()),
+    fare=t["fare"].fillna(t["fare"].mean())
+)
+
+t.aggregate(
+    t[col].isnull().sum().name(col) for col in t.columns
+)
+
+------------------------------------------------
+
+[Tips]
+- Use .fillna() to impute missing values.
+- The method to check for missing values
+is the same as in question 90.
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+df['age'] = df['age'].fillna(df['age'].mean()) # Impute missing age values
+with the average
+df['fare'] = df['fare'].fillna(df['fare'].mean()) # Impute missing fare values
+with the average
+print(df.isnull().sum())

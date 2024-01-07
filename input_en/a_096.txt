@@ -1,0 +1,26 @@
+[answer96]
+
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(n_estimators=100,  
+random_state=0) # Create RandomForest instance
+
+model.fit(features, target) # Execute learning
+
+----------------------------------------------
+
+[Tips]
+- Use RandomForestClassifier to create  
+  a RandomForest instance.
+- Hyperparameters include n_estimators  
+  and max_depth, among others.
+- Execute learning with .fit().
+- Input values must be in ndarray format.  
+  (Therefore, in [94], conversion to  
+  ndarray format is performed)
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+Same as the answer for Ibis

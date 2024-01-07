@@ -1,0 +1,16 @@
+[answer69]
+
+t["age"].median()
+
+----------------------------------------------
+
+[Tips]
+- To check the median value of a column,  
+  use t["column name"].median()
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['age'].median()
+

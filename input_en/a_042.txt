@@ -1,0 +1,25 @@
+[answer42]
+
+t = t.mutate(
+    test=ibis.literal(1)
+)
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- By using .mutate(), you can add a 
+  new column to a table.
+- By setting test=ibis.literal(1), you 
+  perform the operation of 
+  "creating a new column named test 
+  and assigning the value of 1 to all 
+  rows in the column."
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['test'] = 1
+df.head()

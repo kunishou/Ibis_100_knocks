@@ -1,0 +1,19 @@
+[answer56]
+
+t = t.mutate(
+    name=t["name"].lower()
+)
+
+t
+
+----------------------------------------------
+
+[Tips]
+.lower() is used to convert strings to 
+lowercase
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['name'].str.lower()

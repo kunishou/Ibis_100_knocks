@@ -1,0 +1,23 @@
+[answer60]
+
+t5 = t5.mutate(
+    test2=t5["Prefecture"].rstrip() + "_" + t5["City"]
+)
+
+t5.head()
+
+
+----------------------------------------------
+
+[Tips]
+- Remove whitespace on the right side of the string .rstrip()
+- Remove whitespace on both ends of the string .strip()
+- Remove whitespace on the left side of the string .lstrip()
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df5['test2'] = df5['Prefecture'].str.rstrip() + '_' + df5['City']
+df5.head()
+

@@ -1,0 +1,37 @@
+[answer35]
+
+t = t.mutate(
+    fare=t["fare"] * 2
+)
+
+# Alternative
+# t = t.mutate(
+#     (t["fare"] * 2).name("fare")
+# )
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- You can use .mutate() to apply operations
+  to existing columns.
+- If you want to add a new column named "fare2," 
+  you can write it as follows:
+
+t = t.mutate(
+    fare2=t["fare"] * 2
+)
+
+- As with the alternative solution, you can specify
+  the target column name with .name(). However, 
+  when using .name(), you can only write 
+  one operation inside mutate(). 
+  Details will be discussed later.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['fare'] = df['fare'] * 2
+df.head()

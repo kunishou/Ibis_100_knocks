@@ -1,0 +1,27 @@
+[answer80]
+
+print(t['age'].mode())
+
+# Arrange elements in descending order to identify the mode
+t_count = t['age'].value_counts()
+print(t_count.order_by(ibis.desc("age_count")))
+
+
+----------------------------------------------
+
+[Tips]
+- To obtain the mode, use the mode() method
+- Unlike pandas' mode(), it is applicable only to strings.
+  To apply it to a numerical column, it must be
+  converted to a string type
+- Since the 'age' column has many nulls, if the mode is calculated
+  including nulls, null becomes the mode, thus
+  use filter(~pl.col('age').is_null()) to exclude nulls
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+print(df['age'].mode())
+print(df['age'].value_counts())
+

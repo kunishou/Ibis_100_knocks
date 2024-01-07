@@ -1,0 +1,20 @@
+[answer55]
+
+t = t.mutate(
+    name=t["name"].upper()
+)
+
+t
+
+
+----------------------------------------------
+
+[Tips]
+.upper() is used to convert strings to uppercase
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['name'].str.upper()
+

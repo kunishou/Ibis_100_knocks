@@ -1,0 +1,31 @@
+[answer2]
+
+ibis.set_backend("pandas")
+ibis.get_backend()
+
+----------------------------------------------
+
+[Tips]
+- To set the Ibis backend, use ibis.set_backend(). 
+To check the backend, use ibis.get_backend(). 
+- It supports the following processing engines. 
+
+bigquery, clickhouse, dask, datafusion, druid, duckdb, exasol, 
+flink, impala, mssql, mysql, oracle, pandas, polars, postres, 
+pyspark, snowflake, sqlite, trino 
+
+It supports connections to MotherDuck for DuckDB. 
+It is also possible to use CuDF as the backend. 
+For use of CuDF, refer to the following article. 
+
+https://voltrondata.com/resources/ibis-cudf-pandas 
+
+- Note that some Ibis methods do not work 
+depending on the processing engine specified in the backend 
+(eg. can be executed in pandas but error in duckdb)
+
+----------------------------------------------
+
+[Reference] pandas syntax 
+
+No applicable methods.

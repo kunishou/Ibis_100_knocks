@@ -1,0 +1,31 @@
+[answer39]
+
+t = ibis.memtable(t.execute().reset_index()) # Creating an
+index column
+
+t = t.mutate(
+    ibis.case().when(t['index'] == 3, 40)
+               .else_(t['age'])
+               .end().name("age")
+)
+
+t.head()
+
+------------------------------------------------
+
+[Tips]
+- Since there is no method to assign column numbers in Ibis's
+pandas backend (to be precise, there is a method called
+row_number, but it is not supported by pandas), .execute() is
+used to turn it into a dataframe, to which pandas's
+reset_index() is applied. If changing to a backend other
+than pandas, this part also needs to be modified.
+- It is possible to change specific data by using the
+case().when().else_().end() syntax.
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+df.loc[3,'age'] = 40
+df.head()

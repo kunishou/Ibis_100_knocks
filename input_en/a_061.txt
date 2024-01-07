@@ -1,0 +1,28 @@
+[answer61]
+
+t2 = t2.mutate(
+    **{col: t2[col].cast('string') for col in t2.columns}
+)
+
+t2 = ibis.memtable(t2.execute().transpose())
+t2
+
+
+----------------------------------------------
+
+[Tips]
+- Ibis does not have a method to transpose a table, so after
+  using .execute(), we apply pandas' transpose() to
+  the obtained DataFrame. Code modification may
+  be required if not using a pandas backend.
+- transpose() needs the columns to be in string type beforehand,
+  so a for loop with .cast("string") is applied to all columns
+  prior to using transpose().
+
+
+[Reference] pandas syntax
+
+df2 = df2.transpose()
+df2
+
+

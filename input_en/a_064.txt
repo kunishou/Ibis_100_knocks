@@ -1,0 +1,23 @@
+[answer64]
+
+t_merge = t2.join(t3, t2.name == t3.name, how="inner")
+t_merge
+
+
+----------------------------------------------
+
+[Tips]
+- In an inner join, combine only the
+  common keys from t2 and t3
+- Specify the joining key as
+  t2.name == t3.name for the name column
+- Specify the joining method
+  with how=""
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = pd.merge(df2, df3, on='name', how='inner')
+df2
+

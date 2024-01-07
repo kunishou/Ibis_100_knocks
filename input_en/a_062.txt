@@ -1,0 +1,26 @@
+[answer62]
+
+t_merge = t2.join(t3, t2.name == t3.name, how="left")
+
+# Alternative solution
+# t_merge = t2.left_join(t3, "name")
+
+t_merge
+
+------------------------------------------------
+
+[Tips]
+- In a left join, the records in t2 are
+  combined with the records in t3
+- Specifying the join key with t2.name == t3.name
+  in the name column
+- Specify the join method with how=''
+- It's also possible to use .left_join() 
+  as in the alternative solution
+
+------------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = pd.merge(df2, df3, on='name', how='left')
+df2

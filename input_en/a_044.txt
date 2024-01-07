@@ -1,0 +1,21 @@
+[answer44]
+
+t = t.mutate(
+    test=t["cabin"] + "_" + t["embarked"]
+)
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+You can concatenate columns together with a specific string using `t['column1'] + string + t['column2']`.
+
+----------------------------------------------
+
+[Reference] pandas Notation
+
+df['test'] = df['cabin'] + '_' + df['embarked']
+df.head()
+
+

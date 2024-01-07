@@ -1,0 +1,22 @@
+[answer57]
+
+t = t.mutate(
+    sex=t["sex"].replace("female", "python")
+)
+
+t
+
+
+----------------------------------------------
+
+[Tips]
+・文字列の置換には .replace('a', 'b') メソッドを使用する。
+　（文字列 a を文字列 b に置換）
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df['sex'] = df['sex'].replace('female','Python')
+df
+

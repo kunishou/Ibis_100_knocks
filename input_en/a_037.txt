@@ -1,0 +1,37 @@
+[answer37]
+
+import ibis.selectors as s
+
+t = t.mutate(  
+    s.across(["age", "fare"],  
+    {"zscore": lambda x: ((x - x.mean())  
+    / x.std()) * 10 + 50})  
+)  
+
+t  
+
+----------------------------------------------
+
+[Tips]  
+If you want to apply a specific  
+operation across all columns,  
+use s.across().  
+If you want to apply a process to  
+every numeric column, you can  
+also write as follows using  
+s.numeric().
+
+t = t.mutate(  
+    s.across(s.numeric(), {"zscore": lambda x:  
+    ((x - x.mean()) / x.std()) * 10 + 50})  
+)  
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df["age"] = df["age"].apply(lambda x:  
+((x - x.mean()) / x.std()) * 10 + 50)  
+df["fare"] = df["fare"].apply(lambda x:  
+((x - x.mean()) / x.std()) * 10 + 50)  
+df.head()

@@ -1,0 +1,40 @@
+[answer76]
+
+from sklearn.preprocessing import StandardScaler
+
+df2 = t2.execute() # データフレームに変換
+
+#標準化を定義
+scaler = StandardScaler()
+
+# 標準化とデータフレームへの変換
+df2_std = pd.DataFrame(scaler.fit_transform(df2['English'].values.reshape(-1, 1)))
+
+df2_std.describe() # stdが【75】の English と等しくなっていることを確認
+
+
+----------------------------------------------
+
+[Tips]
+・データベーステーブルオブジェクトのままでは scikit-learn で処理できないため、
+　t2 を .execute() でデータフレームに変換して df2 に渡している。
+・dataframe のひとつの列を標準化する場合は、
+　values.reshape(-1,1) で配列変換してやる方法もある。
+・reshape(-1,1) で n 行 1 列に変換する。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+from sklearn.preprocessing import StandardScaler
+
+#標準化を定義
+scaler = StandardScaler()
+scaler.fit(df2['English'].values.reshape(-1,1))
+
+#変換とデータフレームへの置換
+scaler.transform(df2['English'].values.reshape(-1,1)) # 変換のみ
+df2_std = pd.DataFrame(scaler.transform(df2['English'].values.reshape(-1,1))) # 変換とデータフレームへの置換をまとめて行うとこうなる
+
+df2_std.describe() #stdが【74】のEnglishと等しくなっていることを確認
+

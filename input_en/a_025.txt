@@ -1,0 +1,17 @@
+[answer25]
+
+t.filter(t["age"] >= 30)
+# t[t["age"] >= 30] # altanative solution
+
+----------------------------------------------
+
+[Tips]
+- To extract data based on certain conditions, use the filter() method.
+(It is similar to the pandas query)
+- Although it is possible to write code similar to pandas, as shown in the alternative solution, using filter() typically offers better readability.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df[df['age'] >= 30]

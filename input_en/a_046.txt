@@ -1,0 +1,20 @@
+[answer46]
+
+t = t.drop('body')  
+t.head()  
+  
+
+------------------------------------------------  
+
+[Tips]  
+- You can use drop() to remove a specific  
+column.  
+- It can only be used for removing columns  
+(not for removing rows).  
+
+------------------------------------------------  
+
+[Reference] pandas syntax  
+
+df = df.drop('body', axis=1)  
+df.head()  

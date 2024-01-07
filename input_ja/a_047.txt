@@ -1,0 +1,22 @@
+[answer47]
+
+t = ibis.memtable(t.execute().reset_index()) # index 列の作成
+
+t = t.filter(t["index"]!=3)
+
+t.head()
+
+
+----------------------------------------------
+
+[Tips]
+・ index 列を作成し、filter() メソッドを使用して、 index 列が
+　「3」の行を削除している。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df = df.drop(3,axis=0)
+df.head()
+

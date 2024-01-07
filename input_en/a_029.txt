@@ -1,0 +1,21 @@
+[answer29]
+
+t.filter(t["age"].between(10, 40)) # includes both boundaries
+
+----------------------------------------------
+
+[Tips]
+- .between(a, b) sets a condition where
+  a number is greater than or equal to a, 
+  and less than or equal to b.
+- Unlike the .between() in pandas which 
+  allows for specifying boundary conditions, 
+  one cannot use between() to extract data 
+  with conditions such as "greater than a" or 
+  "less than b".
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df[df['age'].between(10, 40)]

@@ -1,0 +1,43 @@
+[answer75]
+
+from sklearn.preprocessing import StandardScaler
+
+df2 = t2.drop("name", "class").execute() # 不要列を削除しデータフレームに変換
+
+# 標準化を定義
+scaler = StandardScaler()
+
+# 標準化とデータフレームへの変換
+df2_std = pd.DataFrame(scaler.fit_transform(df2.to_numpy()), columns=df2.columns)
+
+df2_std.describe() # 3つの列のstdが等しくなっていることを確認
+
+
+----------------------------------------------
+
+[Tips]
+・データベーステーブルオブジェクトのままでは scikit-learn で処理できないため、
+　t2 を .execute() でデータフレームに変換して df2 に渡している。
+・データフレームを標準化する場合は、scikit-learnの
+　StandardScalerを使用する。
+・fit_transform(df2.to_numpy())のようにdataframeをto_numpy()で
+　ndarray形式に変換しないと計算結果がおかしくなるので注意する。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+from sklearn.preprocessing import StandardScaler
+
+df2 = df2.drop(['name','class'],axis=1) #不要列の削除
+
+#標準化を定義
+scaler = StandardScaler()
+scaler.fit(df2)
+
+#変換とデータフレームへの置換
+scaler.transform(df2) # 変換のみ
+df2_std = pd.DataFrame(scaler.transform(df2), columns=df2.columns) # 変換とデータフレームへの置換をまとめて行うとこうなる
+
+df2_std.describe() #stdが等しくなっていることを確認
+

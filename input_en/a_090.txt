@@ -1,0 +1,25 @@
+[answer90]
+
+t.aggregate(
+    t[col].isnull().sum().name(col) for col in t.columns
+)
+
+
+-----------------------------------------------------------
+
+[Tips]
+- Use t["column_name"].isnull().sum() to check the number of missing values.
+- Use a for loop to check missing values for the number of columns.
+- Use aggregate to compile the number of missing values in a table format.
+  If you are not particular about the table format, the following code is also acceptable.
+
+for col in t.columns:
+  print(col)
+  print(t[col].isnull().sum())
+
+
+-----------------------------------------------------------
+
+[Reference] pandas syntax
+
+df.isnull().sum()

@@ -1,0 +1,25 @@
+[answer70]
+
+t2 = t2.drop("class")
+t2 = t2.mutate(
+    row_sum=sum([t2[col] for col in 
+    t2.select(s.numeric()).columns])
+)
+
+t2
+
+----------------------------------------------
+
+[Tips]
+- List the column names you 
+want to add in the row direction 
+using pl.sum(['column1', 'column2'])
+- To check the total value in the 
+column direction, use sum()
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df2 = df2.drop(['class'], axis=1)
+print(df2.sum(axis=1)) # Total in the row direction

@@ -1,0 +1,29 @@
+[answer4]
+
+df = t.execute()
+display(df)
+
+t2 = ibis.memtable(df)
+t2
+
+------------------------------------------------
+
+[tips]
+- By using the .execute() method, Ibis code is 
+  executed, and the result is returned 
+  as a pandas DataFrame.
+- When wanting to execute code in lazy 
+  evaluation mode, run .execute() at the 
+  end of the code.
+- If converted to a DataFrame in the pandas 
+  backend, it is also possible to process with 
+  pandas methods.
+- To convert a DataFrame to a table, 
+  use ibis.memtable().
+
+------------------------------------------------
+
+[Reference] pandas notation
+
+No corresponding method
+

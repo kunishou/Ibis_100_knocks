@@ -1,0 +1,17 @@
+[answer48]
+
+t2 = t2.relabel({"English": "Biology"})
+t2.head()
+
+----------------------------------------------
+
+[Tips]
+- To change column names, use .relabel.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df2.columns = ['name', 'class', 'Biology', 'Physics', 'Chemistry']
+df2.head()
+

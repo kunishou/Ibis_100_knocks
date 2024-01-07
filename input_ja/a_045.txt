@@ -1,0 +1,23 @@
+[answer45]
+
+t = t.mutate(
+    test=t["age"].cast("string") + "_" + t["embarked"]
+)
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+・数値列と文字列を結合する場合は、数値列のほうを文字列型に
+　変換して結合する必要がある。
+・ここでは age 列を .cast() で文字列型に変換したのちに embarked 列と
+　結合している。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df['test'] = df['age'].astype(str).str.cat(df['embarked'],sep='_')
+df.head()
+

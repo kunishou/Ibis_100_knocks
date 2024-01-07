@@ -1,0 +1,25 @@
+[answer14]
+
+display(t[["sex"]].distinct())
+display(t[["cabin"]].distinct())
+
+----------------------------------------------
+
+[Tips]
+Ibis does not have a method to check for unique elements
+like pandas does. Therefore, to check the elements
+in each column, remove duplicates for each column
+to find the unique elements.
+
+Note that the above answer utilizes display for showing
+results, but print can be used without any issues.
+(Display generally presents tables or dataframes
+more neatly, which is why the author prefers it
+in this instance.)
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+print(df['sex'].unique())
+print(df['cabin'].unique())

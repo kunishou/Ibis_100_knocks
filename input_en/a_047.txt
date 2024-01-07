@@ -1,0 +1,21 @@
+[answer47]
+
+t = ibis.memtable(t.execute().reset_index()) # Create index column
+
+t = t.filter(t["index"] != 3)
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- Create an index column and use the filter() method to  
+  remove the row where the index column is '3'.
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df = df.drop(3, axis=0)
+df.head()
+

@@ -1,0 +1,26 @@
+[answer27]
+
+t.filter((t["sex"] == "female") & 
+         (t["age"] >= 40))
+
+----------------------------------------------
+
+[Tips]
+- To extract data using multiple conditions, 
+  connect the conditions with "&".
+- To extract data with specific conditions, 
+  use the filter() method.
+  (Similar to the concept of pandas' query)
+- To change the above answer to use OR conditions 
+  (sex column being female or age being 40 or 
+  more), connect the conditions with "|".
+
+t.filter((t["sex"] == "female") | 
+         (t["age"] >= 40))
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df[(df['sex'] == 'female') & 
+   (df['age'] >= 40)]

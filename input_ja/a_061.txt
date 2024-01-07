@@ -1,0 +1,25 @@
+[answer61]
+
+t2 = t2.mutate(
+    **{col: t2[col].cast('string') for col in t2.columns}
+)
+
+t2 = ibis.memtable(t2.execute().transpose())
+t2
+
+
+----------------------------------------------
+
+[Tips]
+・Ibis には table の行列を転置するメソッドはないため、.execute() で
+　取得したデータフレームに pandas の transpose() を適用している。
+　pandas バックエンドでない場合にはコード修正が必要となる。
+・transpose() 適用時に列が文字列型になっている必要があったため、
+　事前にfor文で全列に対して .cast("string") を実施している。
+
+
+[参考] pandas記法
+
+df2 = df2.transpose()
+df2
+

@@ -1,0 +1,38 @@
+[answer85]
+
+ibis.set_backend("duckdb")
+
+connection = ibis.duckdb.connect()
+
+t2 = connection.read_csv(INPUT_DIR + "data1.csv", table_name="test")
+t3 = connection.read_csv(INPUT_DIR + "data1_2.csv", table_name="test2")
+
+query = """
+select
+  English,
+  Mathematics,
+  History,
+  Biology,
+  Physics
+from test t2
+left join test2 t3 ON t2.name = t3.name
+where
+  Biology is not Null
+"""
+result = connection.sql(query)
+result
+
+
+----------------------------------------------
+
+[Tips]
+・複数のテーブルを用いて .sql() で操作したい場合は connection = ibis.duckdb.connect() を
+　定義し、 connection に各テーブルを読み込ませる。
+・前述の問題では t.sql() だったが connection.sql() のようにメソッドを実行している。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+該当メソッドなし
+

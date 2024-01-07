@@ -1,0 +1,29 @@
+[answer10]
+
+print(t.schema())
+print(t["cabin"].type())
+
+----------------------------------------------
+
+[Tips]
+To check the data types of each 
+column in a table, use .schema(). 
+To extract only certain 
+columns from the table, 
+write it like: 
+t["column_name"].type().
+
+Note that if you want 
+to display the results 
+of multiple codes, use print 
+(as without print, only the 
+result of the second 
+schema line will be 
+displayed).
+
+----------------------------------------------
+
+[Reference] pandas notation
+
+print(df.dtypes)
+print(df['cabin'].dtype)

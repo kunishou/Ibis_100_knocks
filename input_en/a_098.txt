@@ -1,0 +1,24 @@
+[answer98]
+
+from sklearn.metrics import accuracy_score
+
+accuracy_score(pred, test_y)
+
+----------------------------------------------
+
+[Tips]
+- Use accuracy_score (accuracy) to check the
+  prediction accuracy.
+  (Higher accuracy is better, closer to 1.0)
+- There are various evaluation metrics for
+  prediction accuracy. Select the appropriate
+  one for the task at hand.
+
+[Reference] Evaluation metrics for classification tasks
+  https://qiita.com/jyori112/items/110596b4f04e4e1a3c9b
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+Same as the answer for Ibis

@@ -1,0 +1,39 @@
+[answer41]
+
+t = t.mutate(
+    fare=t["fare"].fillna(0).round(0)
+)
+
+t.head()
+
+----------------------------------------------
+
+[Tips]
+- Use .round() to round off decimal places.
+- Rounding off means to truncate if less   
+  than 0.5 and to round up if greater than   
+  0.5 (for exactly 0.5, round up or down to   
+  make the result an even number).
+- Passing an integer n to () will round to   
+  n decimal places.
+- Specifying -1 will round to the tens place,   
+  and -2 will round to the hundreds place.
+- The rounding logic can vary depending   
+  on the backend processing engine, so   
+  check the specifications when using.
+
+ex)
+t["fare"].fillna(0).round(2) -   
+Round to 2 decimal places:
+123.456 -> 123.46
+
+t["fare"].fillna(0).round(-2) -   
+Round to 2 integer places:
+123.456 -> 100.0
+
+----------------------------------------------
+
+[Reference] pandas syntax
+
+df['fare'] = df['fare'].round()
+df.head()

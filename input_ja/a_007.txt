@@ -1,0 +1,21 @@
+[answer7]
+
+t2 = ibis.read_csv(INPUT_DIR + "data1.csv")
+t2.head()
+
+
+----------------------------------------------
+
+[Tips]
+・csv ファイルを読み込む際には ibis.read_csv() を使用する。
+・ibis.read_csv() に渡せる引数は、バックエンドに指定する処理エンジンにより異なる。
+・例えば、 pandas バックエンドの場合は skiprows , encoding などのpandas.read_csv() の
+　引数を指定できる。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df2 = pd.read_csv('../input/data1.csv')
+df2.head()
+

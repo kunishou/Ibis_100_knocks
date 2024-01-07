@@ -1,0 +1,26 @@
+[answer91]
+
+t = t.mutate(
+    age=t["age"].fillna(t["age"].mean()),
+    fare=t["fare"].fillna(t["fare"].mean())
+)
+
+t.aggregate(
+    t[col].isnull().sum().name(col) for col in t.columns
+)
+
+
+----------------------------------------------
+
+[Tips]
+・欠損値の補完には .fillna() を使用する。
+・欠損値数の確認方法は 問題90 の時と同様である。
+
+----------------------------------------------
+
+[参考] pandas記法
+
+df['age'] = df['age'].fillna(df['age'].mean()) #欠損値にageの平均値で補完
+df['fare'] = df['fare'].fillna(df['fare'].mean()) #欠損値にfareの平均値で補完
+print(df.isnull().sum())
+
