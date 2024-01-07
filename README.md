@@ -1,3 +1,5 @@
+![ibis](ibis.png)
+
 # コンテンツの概要について
 https://qiita.com/kunishou/items/xxxxxxxxxxxxxxxxxx
 
