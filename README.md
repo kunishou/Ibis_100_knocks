@@ -1,7 +1,7 @@
 ![ibis](ibis.png)
 
 # コンテンツの概要について
-https://qiita.com/kunishou/items/xxxxxxxxxxxxxxxxxx
+https://qiita.com/kunishou/items/e0244aa2194af8a1fee9
 
 # Google Colabで実行する場合（Japanese）
 はじめは全解答表示版を見て勉強することを推奨します。  
@@ -19,6 +19,6 @@ Run [EN_Ibis_100_Knocks_for_colab.ipynb](https://drive.google.com/file/d/13HZuvp
 
 # 参考
 Ibis-Project  
-https://github.com/ibis-project/ibis  
+https://github.com/ibis-project  
 Operation Support Matrix  
-https://ibis-project.streamlit.app/?embedded=true
+https://ibis-project.streamlit.app
