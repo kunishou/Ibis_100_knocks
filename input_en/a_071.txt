@@ -13,6 +13,8 @@ t2.aggregate(
  maximum, minimum, and count for specific 
  columns. It is often used in combination with 
  group_by().
+- Calculate the sum for each column in t2[col].
+  Repeat this for the number of columns using a for loop.
 
 ----------------------------------------------
 

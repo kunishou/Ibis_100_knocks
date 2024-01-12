@@ -11,11 +11,8 @@ t2
 ----------------------------------------------
 
 [Tips]
-- List the column names you 
-want to add in the row direction 
-using pl.sum(['column1', 'column2'])
-- To check the total value in the 
-column direction, use sum()
+- Calculate the sum by adding up the values
+  in the column direction of t2[col] using a for loop.
 
 ----------------------------------------------
 
