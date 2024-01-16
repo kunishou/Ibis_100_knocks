@@ -1,13 +1,21 @@
 [answer48]
 
-t2 = t2.relabel({"English": "Biology"})
+t2 = t2 = t2.rename(dict(Biology="English"))
 t2.head()
 
 
 ----------------------------------------------
 
 [Tips]
-・列名を変更するには .relabel を使用する。
+・列名を変更するには .rename を使用する。
+・dict に「新列名="旧列名"」の形で変更前後の列名を渡す。
+
+renamed_t = t.rename(
+    dict(
+        new_a="old_a",
+        new_b="old_b",
+    )
+)
 
 ----------------------------------------------
 

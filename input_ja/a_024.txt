@@ -1,16 +1,14 @@
 [answer24]
 
 t_copy = t.select("name", "age", "sex")
-t_copy.execute().to_csv('./output/sample.csv')
+t_copy.to_csv('./output/sample.csv')
 
 
 ----------------------------------------------
 
 [Tips]
-・Ibis にはファイル出力関数が存在していない。そのため、ファイル出力の際は
-　.execute() で table をpandasデータフレームにし、pandasの to_csv() メソッドで
-　ファイルを出力する。
-・バックエンドを pandas 以外に変えた場合は、この部分は修正する必要がある。
+・ファイル出力の際は to_csv() メソッドで
+　csvファイルを出力する。
 
 ----------------------------------------------
 

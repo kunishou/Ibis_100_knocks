@@ -1,6 +1,10 @@
 [answer63]
 
-t_merge = t3.join(t2, t3.name == t2.name, how="left")
+t_merge = (
+          t3.join(t2, t3.name == t2.name, how="left")
+          .drop(s.matches(".*_right"))
+)
+
 t_merge
 
 
@@ -11,6 +15,8 @@ t_merge
 ・右結合では、t3 に存在するレコードに t2 のレコードを左結合する
 ・結合キーを t2.name == t3.name のように name 列を指定
 ・how=''で結合方法を指定
+・.drop(s.matches(".*_right")) で結合で新しくできる *_right 列を
+　削除できる（必要であれば任意で実行して下さい）。
 
 ----------------------------------------------
 

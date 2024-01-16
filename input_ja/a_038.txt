@@ -1,5 +1,21 @@
 [answer38]
 
+ibis.set_backend("duckdb") # バックエンドを duckdb に変更
+
+t = t.mutate(
+    index=ibis.row_number() 行番号を格納した "index" という名前の列を作成
+)
+
+t = t.mutate(
+        age=(t.index == 3).ifelse(40, t.age),
+)
+
+t.head()
+
+ibis.set_backend("pandas") # バックエンドを pandas に戻す
+
+
+[別解]
 t = ibis.memtable(t.execute().reset_index()) # index 列の作成
 
 t = t.mutate(
@@ -12,8 +28,10 @@ t.head()
 ----------------------------------------------
 
 [Tips]
-・Ibis の pandas バックエンドに列番号を割り振るメソッドがないため（正確に言うと row_number というメソッドが
-　存在しているが pandas は未対応）、.execute() でデータフレームにし、そこに pandas の reset_index() を適用している。
+・Ibis の pandas バックエンドに行番号を割り振るメソッド row_number() に未対応なため、
+　row_number() を使う時のみバックエンドを違うエンジンに変更している。
+・バックエンドをパイプラインの途中で柔軟に変更できるのも Ibis の特徴である。
+.別解では execute() でデータフレームにし、そこに pandas の reset_index() を適用している。
 　バックエンドを pandas 以外に変更する場合はここも修正が必要になる。
 ・iflse を用いて age=(t['index'] == 3).ifelse(40, t["age"]) と書くことで
 　「index 列の値が 3 であれば age 列の値を 40 に、そうでなければ age 列の値のままに」
