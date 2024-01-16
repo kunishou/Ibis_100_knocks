@@ -3,7 +3,7 @@
 ibis.set_backend("duckdb") # バックエンドを duckdb に変更
 
 t = t.mutate(
-    index=ibis.row_number() 行番号を格納した "index" という名前の列を作成
+    index=ibis.row_number() # 行番号を格納した "index" という名前の列を作成
 )
 
 t = t.mutate(
