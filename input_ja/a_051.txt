@@ -19,7 +19,7 @@ t["age"].isnull().sum()
 strign 列の欠損値補完をする場合
 
 t = t.mutate(
-    cabin=(t["cabin"]==None).ifelse("null", t["cabin"])
+    embarked=(t["embarked"].isnull()).ifelse("null", t["embarked"])
 )
 
 ----------------------------------------------
