@@ -1,22 +1,30 @@
 [answer37]
 
+from ibis import _
 import ibis.selectors as s
 
 t = t.mutate(
-    s.across(["age", "fare"] , {"zscore": lambda x: ((x - x.mean()) / x.std()) * 10 + 50})
-) 
+    s.across(["age", "fare"], {"zscore": ((_ - _.mean()) / _.std()) * 10 + 50})
+)
 
-t
+# [別解]
+# t = t.mutate(
+#     s.across(["age", "fare"] , {"zscore": lambda x: ((x - x.mean()) / x.std()) * 10 + 50})
+# ) 
+
+t.head()
 
 
 ----------------------------------------------
 
 [Tips]
 ・特定の処理をカラム全体に適用したい場合は s.across() を使用する。
+・ " from ibis import _ " で直前の変数を _ で記述することができる。
+　（今回の場合は t["age"] や t["fare"] が _ に入る）
 ・もし数値列全体に処理を適用したい場合は s.numeric() を使用して以下のように書くこともできる。
 
 t = t.mutate(
-    s.across(s.numeric() , {"zscore": lambda x: ((x - x.mean()) / x.std()) * 10 + 50})
+    s.across(s.numeric() , {"zscore": ((_ - _.mean()) / _.std()) * 10 + 50})
 )
 
 ----------------------------------------------

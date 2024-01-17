@@ -1,8 +1,16 @@
 [answer12]
 
+
 t2 = t2.mutate(
     **{col: t2[col].cast('string') for col in t2.columns}
 )
+
+
+# [別解]
+# from ibis import _
+# import ibis.selectors as s
+
+# t2 = t2.select(s.across(s.all(), _.cast("string")))
 
 t2
 
@@ -13,6 +21,8 @@ t2
 ・データ型を変更する場合は .cast(データ型) を使用する。
 ・table すべての列を文字列型に変換する場合は、for文を用いて
 　1列ずつ .cast() で変換する。
+・別解のように select , selector を用いてシンプルに書くことも
+　できる。select, selector の使い方は後述のノックを参照して下さい。
 
 ----------------------------------------------
 
