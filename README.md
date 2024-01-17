@@ -4,7 +4,7 @@
 
 ## コンテンツ概要
 Python 初学者が統合データ処理ライブラリ Ibis を効率的に学習するためのコンテンツです。  
-詳細は以下の記事をご覧下さい。
+詳細は以下の記事をご覧下さい。  
 https://qiita.com/kunishou/items/e0244aa2194af8a1fee9
 
 ## Google Colabで実行する場合（Japanese）
