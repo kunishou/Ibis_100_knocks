@@ -1,9 +1,17 @@
 [answer71]
 
-t2.aggregate(
-    t2[col].sum() for col in ["English","Mathematics","History"]
+from ibis import _
+import ibis.selectors as s
+
+t2.agg(
+    s.across(["English","Mathematics","History"], _.sum())
 )
 
+
+# [別解]
+# t2.aggregate(
+#     t2[col].sum() for col in ["English","Mathematics","History"]
+# )
 
 ----------------------------------------------
 
@@ -12,7 +20,9 @@ t2.aggregate(
 　合計、平均、最大値、最小値、カウントなどの集計を集約操作を
 　することができる。group_by() と組み合わせて使われることが
 　多い。
-・t2[col]で列ごとの合計を算出する。for文でこれを列数分繰り返す。
+・across を用いて 選択した3つの列に対して .sum() を適用している。
+・ " from ibis import _ " で直前の変数を _ で記述することができる。
+・across を使わない場合は別解のようになる。
 
 ----------------------------------------------
 

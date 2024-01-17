@@ -1,26 +1,47 @@
 [answer73]
 
-t2 = t2.drop('name')
-t2.group_by('class').aggregate(
-    english_max=t2["English"].max(),
-    mathematics_max=t2["Mathematics"].max(),
-    history_max=t2["History"].max(),
-    english_min=t2["English"].min(),
-    matehmatics_min=t2["Mathematics"].min(),
-    history_min=t2["History"].min(),
-    english_mean=t2["English"].mean(),
-    matehmatics_mean=t2["Mathematics"].mean(),
-    history_mean=t2["History"].mean()
+from ibis import _
+import ibis.selectors as s
+
+(
+    t2
+    .group_by("class")
+    .agg(
+        s.across(
+            s.numeric(),
+            {"max": _.max(), "min": _.min(), "mean": _.mean()},
+            names="{col}_{fn}",
+        )
+    )
+    .drop(s.matches("class_.*"))
 )
+
+
+# [別解]
+# t2 = t2.drop('name')
+# t2.group_by('class').aggregate(
+#     english_max=t2["English"].max(),
+#     mathematics_max=t2["Mathematics"].max(),
+#     history_max=t2["History"].max(),
+#     english_min=t2["English"].min(),
+#     matehmatics_min=t2["Mathematics"].min(),
+#     history_min=t2["History"].min(),
+#     english_mean=t2["English"].mean(),
+#     matehmatics_mean=t2["Mathematics"].mean(),
+#     history_mean=t2["History"].mean()
+# )
 
 
 ----------------------------------------------
 
 [Tips]
 ・group_by("class") でグルーピングした後に、
-　すべての列に対して max , min , mean の集計処理をしている。
-・処理結果の列には接尾語として「_mean」、「_max」、「_min」を
-　振っている
+　across を用いてすべての列に対して max , min , mean の集計処理をしている。
+・「names="{col}_{fn}"」にて処理結果の列には接尾語として「_mean」、「_max」、
+　「_min」を振っている
+・集計ごとに「class_min」、「class_max」、「class_mean」という列名が
+　できていしまうので drop(s.matches("class_.*")) で削除している。
+・別解のように地道に書くこともできる。
 
 ----------------------------------------------
 

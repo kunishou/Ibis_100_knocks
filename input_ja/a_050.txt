@@ -1,17 +1,30 @@
 [answer50]
 
+from ibis import _
+import ibis.selectors as s
+
 t.aggregate(
-    t[col].isnull().sum().name(col) for col in t.columns
+    s.across(s.all(), _.isnull().sum())
 )
+
+# [別解]
+# t.aggregate(
+#     t[col].isnull().sum().name(col) for col in t.columns
+# )
 
 ----------------------------------------------
 
 [Tips]
 ・t["列名"].isnull().sum()で欠損値数を集計できる。
-・t[col].isnull().sum().name(col) をすべての列に実施して
-　列ごとに欠損値数を集計する。
+・across と selector を使用することですべての列に対して
+　.isunull.sum() を適用している。
+・ " from ibis import _ " で直前の変数を _ で記述することができる。
+　（今回の場合は s.all()で選択した t[列名] が _ に入る）
+・別解のように t[col].isnull().sum().name(col) をすべての列に実施して
+　列ごとに欠損値数を集計することもできる。
 ・aggregate でテーブル形式で欠損値数をまとめる。
 　テーブル形式にこだわらないのであれば以下の形でも問題ない。
+・aggregate は agg と省略して記述することもできる。
 
 for col in t.columns:
   print(col)

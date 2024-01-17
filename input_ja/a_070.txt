@@ -7,11 +7,24 @@ t2 = t2.mutate(
 
 t2
 
-
 ----------------------------------------------
 
 [Tips]
 ・列方向のt2[col]をfor文で加算し合計を算出する
+・別途ライブラリの import が必要だが以下のように
+　記述することもできる。
+
+from functools import reduce
+from operator import add
+
+(
+    t2
+    .drop("class")
+    .mutate(
+        row_sum=reduce(add, s.across(s.numeric(), _).expand(t2))
+        # ここは .expand(_) と書けない（バグ？）
+    )
+)
 
 ----------------------------------------------
 
