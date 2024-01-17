@@ -20,5 +20,5 @@ Run [EN_Ibis_100_Knocks_for_colab.ipynb](https://colab.research.google.com/drive
 # 参考
 Ibis-Project  
 https://ibis-project.org/  
-Operation Support Matrix  
+メソッド対応表  
 https://ibis-project.streamlit.app
