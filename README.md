@@ -1,4 +1,4 @@
-![ibis](ibis.png)
+![ibis](ibis.jpg)
 
 # コンテンツの概要について
 https://qiita.com/kunishou/items/e0244aa2194af8a1fee9
