@@ -18,7 +18,7 @@ Run [EN_Ibis_100_Knocks_for_colab.ipynb](https://colab.research.google.com/drive
 [All answer displayed](https://colab.research.google.com/drive/1S8ba7NVYi-OyK6wh3lh6oPdlaNIhGDuK?usp=sharing)
 
 # 参考
-Ibis-Project  
+- Ibis-Project  
 https://ibis-project.org/  
-メソッド対応表  
+- メソッド対応表  
 https://ibis-project.streamlit.app
