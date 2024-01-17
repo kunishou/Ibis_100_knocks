@@ -7,10 +7,9 @@ t = t.mutate(
 
 # 別解
 # t = t.mutate(
-#     (t["fare"] * 2).name("fare")
-#     ).mutate(
-#     (t["age"]+3).name("age")
-#     )
+#     [(t["fare"] * 2).name("fare"),
+#      (t["age"]+3).name("age")]
+# )
 
 t.head()
 
@@ -20,13 +19,12 @@ t.head()
 [Tips]
 ・.mutate() を使用して既存列への処理の適用ができる。
 ・別解のように .name() を用いて複数処理を記述したい場合は、
-　処理内容ごとに .mutate() を分ける必要がある。
-　（以下のように、 mutate 内に複数の .name() があるとエラーになる）
+　処理内容を[]で囲む。
 
 t = t.mutate(
-    (t["fare"] * 2).name("fare"),
-    (t["age"]+3).name("age")
-    )
+    [(t["fare"] * 2).name("fare"),
+     (t["age"]+3).name("age")]
+)
 
 ----------------------------------------------
 
