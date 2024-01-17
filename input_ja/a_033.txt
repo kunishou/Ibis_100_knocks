@@ -8,6 +8,19 @@ t["embarked"].value_counts()
 [Tips]
 ・ユニークな要素と出現数を確認するには
 　.value_counts()を使用する。
+・.value_counts() では欠損値が集計に含まれない点に注意！
+　pandasの value_counts のように dropna=False のような引数も
+　ないため、-1 など任意の値で欠損値補完してから .value_counts() する。
+　なお、欠損値補完は .fillna() メソッドであるが string 列に対して
+　実行するとなぜかエラーが出てしまうため .execute() でデータフレームに
+　変換して pandas の .value_counts() で確認する（適切な書き方が分かり次第、
+　解答をアップデートします）。
+
+string 列の場合（.execute()でデータフレームにする）
+t["embarked"].execute().fillna("null").value_counts()
+
+数値列の場合
+t["age"].fillna(-1).value_counts()
 
 ----------------------------------------------
 
