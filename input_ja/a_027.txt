@@ -5,7 +5,7 @@ t.filter([t["sex"] == "female",
          )
 
 # 別解
-t.filter((t["sex"] == "female") & (t["age"] >= 40))
+# t.filter((t["sex"] == "female") & (t["age"] >= 40))
 
 
 ----------------------------------------------
