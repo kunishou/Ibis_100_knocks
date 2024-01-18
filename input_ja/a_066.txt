@@ -1,24 +1,37 @@
 [answer66]
 
-t2 = ibis.memtable(t2.execute().reset_index()) # index 列を作成
-t4 = ibis.memtable(t4.execute().reset_index()) # index 列を作成
+ibis.set_backend("duckdb") # バックエンドを duckdb に変更
+
+t2 = t2.mutate(index=ibis.row_number())
+t4 = t4.mutate(index=ibis.row_number())
 
 t2 = t2.join(t4, t2.index == t4.index, how="outer") # index 列をキーにマージ
+t2
 
-# 別解
+ibis.set_backend("pandas") # バックエンドを pandas に戻す
+
+# [別解1]
+# t2 = ibis.memtable(t2.execute().reset_index()) # index 列を作成
+# t4 = ibis.memtable(t4.execute().reset_index()) # index 列を作成
+
+# t2 = t2.join(t4, t2.index == t4.index, how="outer") # index 列をキーにマージ
+# t2
+
+# [別解2]
 # t2 = pd.concat([t2.execute(), t4.drop("name").execute()], axis=1) # pandasメソッドで concat
 # t2 = ibis.memtable(t2)
-
-t2
+# t2
 
 
 ----------------------------------------------
 
 [Tips]
-・複数のtable を列方向に結合するときは、2つのテーブルに index を振り、
-　index をキーにマージしている。
-・ .excute() で pandas データフレームにしたデータを pandas の concat メソッドで
-　結合する。
+・複数のtable を列方向に結合するときは、ibis.row_number() で 2 つのテーブルに index を振り、
+　index 列をキーにマージしている。
+・ibis.row_number() メソッドが pandas ではサポートされていないため、バックエンドを一時的に
+　 DuckDB に切り替えている（バックエンドを柔軟に変えられるのも ibis の強み）。
+・別解のように .excute() で pandas データフレームにしたデータを pandas の concat メソッドで
+　結合するやり方もある。
 
 ----------------------------------------------
 
