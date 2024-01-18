@@ -9,7 +9,7 @@ t = (
     index=ibis.row_number() # 行番号を格納した "index" という名前の列を作成
     )
     .mutate(
-            age=(_.index == 3).ifelse(40, _.age),
+            age=(_.index == 3).ifelse(40, _.age)
     )
 )
 
