@@ -1,18 +1,21 @@
 [answer38]
 
+from ibis import _
+
 ibis.set_backend("duckdb") # バックエンドを duckdb に変更
 
-t = t.mutate(
+t = (
+    t.mutate(
     index=ibis.row_number() # 行番号を格納した "index" という名前の列を作成
-)
-
-t = t.mutate(
-        age=(t.index == 3).ifelse(40, t.age),
+    )
+    .mutate(
+            age=(_.index == 3).ifelse(40, _.age),
+    )
 )
 
 t.head()
 
-ibis.set_backend("pandas") # バックエンドを pandas に戻す
+# ibis.set_backend("pandas") # バックエンドを pandas に戻す
 
 
 [別解]
@@ -43,4 +46,3 @@ t.head()
 
 df.loc[3,'age'] = 40
 df.head()
-
