@@ -1,6 +1,6 @@
 [answer48]
 
-t2 = t2 = t2.rename(dict(Biology="English"))
+t2 = t2.rename(dict(Biology="English"))
 t2.head()
 
 
