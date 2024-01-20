@@ -5,7 +5,13 @@ t_merge = (
           .drop(s.matches(".*_right"))
 )
 
-# 別解
+# 別解1
+# t_merge = (
+#           t2.join(t3, "name", how="left")
+#           .drop(s.matches(".*_right"))
+# )
+
+# 別解2
 # t_merge = (
 #             t2.left_join(t3, "name")
 #             .drop(s.matches(".*_right"))
@@ -20,7 +26,9 @@ t_merge
 ・左結合では、t2 に存在するレコードに t3 のレコードを結合する
 ・結合キーを t2.name == t3.name のように name 列を指定
 ・how=''で結合方法を指定
-・別解のように .left_join() を使うこともできる。
+・結合キーの列名が同一である場合は、別解1のように記述することもできる
+　（気のせいかこちらのほうが処理時間が少し長く感じます）。
+・左結合の場合は、別解2のように .left_join() を使うこともできる。
 ・.drop(s.matches(".*_right")) で結合で新しくできる *_right 列を
 　削除できる（必要であれば任意で実行して下さい）。
 
